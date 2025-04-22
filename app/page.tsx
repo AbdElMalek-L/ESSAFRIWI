@@ -70,7 +70,23 @@ export default function Home() {
       </header>
 
       {/* New Hero Section */}
-      <Hero />
+      
+      {/* <Hero /> */}
+
+            {/* Hero Section */}
+
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://realt.by/uploads/pics/Stadion.jpg"
+            alt="Stadium Background"
+            fill
+            className="object-cover brightness-40"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 to-slate-900"></div>
+        </div>
+
+
 
       {/* Moved Payment/Apps Section */}
       <div className="relative z-10 px-4 py-16 mx-auto max-w-7xl md:py-20">
