@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { PhoneIcon as WhatsappIcon } from "lucide-react"
+import Hero from "@/components/hero/Hero"
 
 export default function Home() {
   return (
@@ -68,73 +69,63 @@ export default function Home() {
         </button>
       </header>
 
-      {/* Hero Section */}
-      <div className="relative">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://realt.by/uploads/pics/Stadion.jpg"
-            alt="Stadium Background"
-            fill
-            className="object-cover brightness-40"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 to-slate-900"></div>
+      {/* New Hero Section */}
+      <Hero />
+
+      {/* Moved Payment/Apps Section */}
+      <div className="relative z-10 px-4 py-16 mx-auto max-w-7xl md:py-20">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          {/* Payment Methods Section */}
+          <div className="p-6 gradient-card rounded-2xl shadow-xl backdrop-blur-md bg-slate-900/50 border border-sky-500/20">
+            <h2 className="mb-6 text-xl font-semibold text-center text-white">Méthodes De Paiement</h2>
+            <div className="grid grid-cols-3 gap-4 sm:grid-cols-4">
+              {paymentMethods.map((method) => (
+                <div
+                  key={method.name}
+                  className="flex items-center justify-center p-3 bg-white rounded-xl shadow-lg transform transition-transform hover:scale-105"
+                >
+                  <Image
+                    src={method.logo || "/placeholder.svg"}
+                    alt={method.name}
+                    width={120}
+                    height={80}
+                    className="object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Applications Section */}
+          <div className="p-6 gradient-card rounded-2xl shadow-xl backdrop-blur-md bg-slate-900/50 border border-sky-500/20">
+            <h2 className="mb-6 text-xl font-semibold text-center text-white">Applications</h2>
+            <div className="grid grid-cols-3 gap-4 sm:grid-cols-4">
+              {applications.map((app) => (
+                <div
+                  key={app.name}
+                  className="flex items-center justify-center p-3 bg-white rounded-xl shadow-lg transform transition-transform hover:scale-105"
+                >
+                  <Image
+                    src={app.logo || "/placeholder.svg"}
+                    alt={app.name}
+                    width={60}
+                    height={40}
+                    className="object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="relative z-10 px-4 py-16 mx-auto max-w-7xl md:py-28 hero-overlay">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {/* Payment Methods Section */}
-            <div className="p-6 gradient-card rounded-2xl shadow-xl backdrop-blur-md bg-slate-900/50 border border-sky-500/20">
-              <h2 className="mb-6 text-xl font-semibold text-center text-white">Méthodes De Paiement</h2>
-              <div className="grid grid-cols-3 gap-4 sm:grid-cols-4">
-                {paymentMethods.map((method) => (
-                  <div
-                    key={method.name}
-                    className="flex items-center justify-center p-3 bg-white rounded-xl shadow-lg transform transition-transform hover:scale-105"
-                  >
-                    <Image
-                      src={method.logo || "/placeholder.svg"}
-                      alt={method.name}
-                      width={120}
-                      height={80}
-                      className="object-contain"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Applications Section */}
-            <div className="p-6 gradient-card rounded-2xl shadow-xl backdrop-blur-md bg-slate-900/50 border border-sky-500/20">
-              <h2 className="mb-6 text-xl font-semibold text-center text-white">Applications</h2>
-              <div className="grid grid-cols-3 gap-4 sm:grid-cols-4">
-                {applications.map((app) => (
-                  <div
-                    key={app.name}
-                    className="flex items-center justify-center p-3 bg-white rounded-xl shadow-lg transform transition-transform hover:scale-105"
-                  >
-                    <Image
-                      src={app.logo || "/placeholder.svg"}
-                      alt={app.name}
-                      width={60}
-                      height={40}
-                      className="object-contain"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Recharge Button */}
-          <div className="flex justify-center mt-12">
-            <Link
-              href="/recharge"
-              className="px-10 py-4 text-lg font-bold text-white transition-all rounded-lg shadow-lg btn-primary hover:shadow-sky-500/20"
-            >
-              RECHARGE
-            </Link>
-          </div>
+        {/* Recharge Button */}
+        <div className="flex justify-center mt-12">
+          <Link
+            href="/recharge"
+            className="px-10 py-4 text-lg font-bold text-white transition-all rounded-lg shadow-lg btn-primary hover:shadow-sky-500/20"
+          >
+            RECHARGE
+          </Link>
         </div>
       </div>
 
@@ -187,7 +178,7 @@ const applications = [
   { name: "1xBet", logo: "https://i.ibb.co/svxRXqrN/image.png" },
   { name: "LineBet", logo: "https://i.ibb.co/TxsNrpsf/image.png" },
   { name: "BetWinner", logo: "https://i.ibb.co/mrd51H81/image.png" },
-  { name: "MelBet", logo: "/apps/melbet.png" },
+  { name: "Paripulse", logo: "https://i.ibb.co/BVmQyG80/image.png" },
 ]
 
 const topApplications = [
