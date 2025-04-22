@@ -14,7 +14,6 @@ export default function Home() {
       <header className="flex items-center justify-between px-6 py-5 bg-slate-900/90 backdrop-blur-xl border-b border-sky-500/20 md:px-10 sticky top-0 z-50 shadow-lg shadow-sky-500/5">
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-3 group">
-            <Image src="/logo.png" alt="mokhtari49 Logo" width={40} height={40} className="object-contain transition-transform group-hover:scale-105" />
             <span className="text-2xl font-bold text-sky-400 tracking-wider">
               MOKHTARI<span className="text-white">49</span>
             </span>

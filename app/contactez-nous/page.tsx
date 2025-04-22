@@ -9,7 +9,6 @@ export default function ContactPage() {
       <header className="flex items-center justify-between px-4 py-4 bg-slate-900/80 backdrop-blur-md border-b border-sky-500/10 md:px-8 sticky top-0 z-50">
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="mokhtari49 Logo" width={36} height={36} className="object-contain" />
             <span className="text-xl font-bold text-sky-400">
               MOKHTARI<span className="text-white">49</span>
             </span>
