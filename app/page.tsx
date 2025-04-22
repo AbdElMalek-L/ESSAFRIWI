@@ -1,0 +1,197 @@
+import Image from "next/image"
+import Link from "next/link"
+import { PhoneIcon as WhatsappIcon } from "lucide-react"
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-[#0f172a] text-white">
+      {/* Header */}
+      <header className="flex items-center justify-between px-4 py-4 bg-slate-900/80 backdrop-blur-md border-b border-sky-500/10 md:px-8 sticky top-0 z-50">
+        <div className="flex items-center">
+          <Link href="/" className="flex items-center gap-2">
+            <Image src="/logo.png" alt="mokhtari49 Logo" width={36} height={36} className="object-contain" />
+            <span className="text-xl font-bold text-sky-400">
+              MOKHTARI<span className="text-white">49</span>
+            </span>
+          </Link>
+        </div>
+
+        <Link
+          href="/video"
+          className="hidden px-5 py-2 text-sm font-medium text-white transition-all border border-sky-500/30 rounded-full md:block hover:bg-sky-500/10 hover:border-sky-500/50"
+        >
+          VIDÉO EXPLICATIVE
+        </Link>
+
+        <nav className="hidden md:block">
+          <ul className="flex items-center space-x-8">
+            <li>
+              <Link href="/" className="text-sky-400 nav-link active hover:text-sky-300">
+                HOME
+              </Link>
+            </li>
+            <li>
+              <Link href="/recharge" className="text-white nav-link hover:text-sky-300">
+                RECHARGE
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/retirer" className="text-white nav-link hover:text-sky-300">
+                RETIRER
+              </Link>
+            </li>
+            <li>
+              <Link href="/contactez-nous" className="text-white nav-link hover:text-sky-300">
+                CONTACTEZ NOUS
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
+        <button className="block md:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+        </button>
+      </header>
+
+      {/* Hero Section */}
+      <div className="relative">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://realt.by/uploads/pics/Stadion.jpg"
+            alt="Stadium Background"
+            fill
+            className="object-cover brightness-40"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 to-slate-900"></div>
+        </div>
+
+        <div className="relative z-10 px-4 py-16 mx-auto max-w-7xl md:py-28 hero-overlay">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            {/* Payment Methods Section */}
+            <div className="p-6 gradient-card rounded-2xl shadow-xl backdrop-blur-md bg-slate-900/50 border border-sky-500/20">
+              <h2 className="mb-6 text-xl font-semibold text-center text-white">Méthodes De Paiement</h2>
+              <div className="grid grid-cols-3 gap-4 sm:grid-cols-4">
+                {paymentMethods.map((method) => (
+                  <div
+                    key={method.name}
+                    className="flex items-center justify-center p-3 bg-white rounded-xl shadow-lg transform transition-transform hover:scale-105"
+                  >
+                    <Image
+                      src={method.logo || "/placeholder.svg"}
+                      alt={method.name}
+                      width={120}
+                      height={80}
+                      className="object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Applications Section */}
+            <div className="p-6 gradient-card rounded-2xl shadow-xl backdrop-blur-md bg-slate-900/50 border border-sky-500/20">
+              <h2 className="mb-6 text-xl font-semibold text-center text-white">Applications</h2>
+              <div className="grid grid-cols-3 gap-4 sm:grid-cols-4">
+                {applications.map((app) => (
+                  <div
+                    key={app.name}
+                    className="flex items-center justify-center p-3 bg-white rounded-xl shadow-lg transform transition-transform hover:scale-105"
+                  >
+                    <Image
+                      src={app.logo || "/placeholder.svg"}
+                      alt={app.name}
+                      width={60}
+                      height={40}
+                      className="object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Recharge Button */}
+          <div className="flex justify-center mt-12">
+            <Link
+              href="/recharge"
+              className="px-10 py-4 text-lg font-bold text-white transition-all rounded-lg shadow-lg btn-primary hover:shadow-sky-500/20"
+            >
+              RECHARGE
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Most Used Applications */}
+      <div className="px-4 py-20 mx-auto max-w-7xl">
+        <h2 className="mb-12 text-2xl font-medium text-center text-sky-300">Les applications les plus utilisées</h2>
+
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
+          {topApplications.map((app) => (
+            <Link
+              href={app.url}
+              key={app.name}
+              className="flex items-center justify-center p-6 transition-all glass-effect rounded-xl hover:scale-105 hover:shadow-lg hover:shadow-sky-500/10"
+            >
+              <Image
+                src={app.logo || "/placeholder.svg"}
+                alt={app.name}
+                width={240}
+                height={80}
+                className="object-contain filter drop-shadow-[0_0_5px_rgba(255,255,255,0.7)]"
+              />
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* WhatsApp Button */}
+      <a
+        href="https://wa.me/1234567890"
+        className="fixed p-4 text-white transition-all bg-green-500 rounded-full shadow-lg bottom-6 right-6 hover:bg-green-600 hover:scale-110"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contact us on WhatsApp"
+      >
+        <WhatsappIcon size={28} />
+      </a>
+    </div>
+  )
+}
+
+const paymentMethods = [
+  { name: "CIH", logo: "https://i.ibb.co/Kx8ydnrM/image.png" },
+  { name: "CashPlus", logo: "https://i.ibb.co/DHH7d06f/image.png" },
+  { name: "Barid Bank", logo: "https://i.ibb.co/kNQWLtz/image.png" },
+  { name: "Orange", logo: "https://i.ibb.co/cXCz47CP/image.png" },
+  { name: "Inwi", logo: "https://i.ibb.co/svhKsQMV/image.png" },
+]
+
+const applications = [
+  { name: "1xBet", logo: "https://i.ibb.co/svxRXqrN/image.png" },
+  { name: "LineBet", logo: "https://i.ibb.co/TxsNrpsf/image.png" },
+  { name: "BetWinner", logo: "https://i.ibb.co/mrd51H81/image.png" },
+  { name: "MelBet", logo: "/apps/melbet.png" },
+]
+
+const topApplications = [
+  { name: "1xBet", logo: "https://i.ibb.co/svxRXqrN/image.png", url: "https://1xbet.com" },
+  { name: "BetWinner", logo: "https://i.ibb.co/mrd51H81/image.png", url: "https://betwinner.com" },
+  { name: "LineBet", logo: "https://i.ibb.co/TxsNrpsf/image.png", url: "https://linebet.com" },
+]
