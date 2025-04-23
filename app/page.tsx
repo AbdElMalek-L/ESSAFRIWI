@@ -172,14 +172,14 @@ export default function Home() {
               {paymentMethods.map((method) => (
                 <div
                   key={method.name}
-                  className="flex items-center justify-center p-4 bg-white/95 rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20"
+                  className="flex items-center justify-center p-1 bg-white/95 rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20 h-24"
                 >
                   <Image
                     src={method.logo || "/placeholder.svg"}
                     alt={method.name}
                     width={120}
                     height={80}
-                    className="object-contain"
+                    className="object-contain w-full h-full"
                   />
                 </div>
               ))}
@@ -193,14 +193,14 @@ export default function Home() {
               {applications.map((app) => (
                 <div
                   key={app.name}
-                  className="flex items-center justify-center p-3 bg-white rounded-xl shadow-lg transform transition-transform hover:scale-105"
+                  className="flex items-center justify-center bg-white/95 rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20 h-24"
                 >
                   <Image
                     src={app.logo || "/placeholder.svg"}
                     alt={app.name}
-                    width={60}
-                    height={40}
-                    className="object-contain"
+                    width={120}
+                    height={80}
+                    className="object-contain w-full h-full"
                   />
                 </div>
               ))}
@@ -262,10 +262,11 @@ const paymentMethods = [
   { name: "Barid Bank", logo: "https://i.ibb.co/kNQWLtz/image.png" },
   { name: "Orange", logo: "https://i.ibb.co/cXCz47CP/image.png" },
   { name: "Inwi", logo: "https://i.ibb.co/svhKsQMV/image.png" },
+  { name: "Attijariwafa bank", logo: "https://i.ibb.co/b5KvZbSJ/image.png" },
 ]
 
 const applications = [
-  { name: "1xBet", logo: "https://i.ibb.co/svxRXqrN/image.png" },
+  { name: "1xBet", logo: "https://i.ibb.co/gMYRsJtY/image.png" },
   { name: "LineBet", logo: "https://i.ibb.co/TxsNrpsf/image.png" },
   { name: "BetWinner", logo: "https://i.ibb.co/mrd51H81/image.png" },
   { name: "Paripulse", logo: "https://i.ibb.co/BVmQyG80/image.png" },
