@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { PhoneIcon as WhatsappIcon } from "lucide-react"
 import Hero from "@/components/hero/Hero"
+import FallingDollars from "@/components/hero/FallingDollars"
 import { useState } from "react"
 
 export default function Home() {
@@ -132,6 +133,9 @@ export default function Home() {
       {/* Hero Section */}
       <div className="relative z-10 px-4 py-20 mx-auto max-w-7xl">
         <div className="text-center relative">
+          {/* Falling Dollars */}
+          <FallingDollars />
+
           {/* Animated background particles */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute w-2 h-2 bg-yellow-500/20 rounded-full animate-float" style={{ left: '10%', top: '20%', animationDelay: '0s' }}></div>
