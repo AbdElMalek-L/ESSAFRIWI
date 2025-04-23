@@ -54,11 +54,12 @@ export default function RechargePage() {
               </label>
               <select id="app" className="form-select">
                 <option value="">Sélectionnez une application</option>
-                <option value="1xbet">1xBet</option>
-                <option value="linebet">LineBet</option>
-                <option value="betwinner">BetWinner</option>
-                <option value="melbet">MelBet</option>
-                <option value="888starz">888Starz</option>
+                <option value="cih">CIH</option>
+                <option value="cashplus">CashPlus</option>
+                <option value="barid">Barid Bank</option>
+                <option value="orange">Orange Money</option>
+                <option value="inwi">Inwi</option>
+                <option value="attijariwafa">Attijariwafa bank</option>
               </select>
             </div>
 

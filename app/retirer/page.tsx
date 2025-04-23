@@ -60,9 +60,8 @@ export default function RetirerPage() {
                 <option value="">Sélectionnez une application</option>
                 <option value="1xbet">1xBet</option>
                 <option value="linebet">LineBet</option>
-                <option value="betwinner">BetWinner</option>
                 <option value="melbet">MelBet</option>
-                <option value="888starz">888Starz</option>
+                <option value="paripulse">Pari Pulse</option>
               </select>
             </div>
 
@@ -97,11 +96,12 @@ export default function RetirerPage() {
               </label>
               <select id="withdraw-payment" className="form-select">
                 <option value="">Sélectionnez une méthode de paiement</option>
-                <option value="moov">Moov Money</option>
-                <option value="mtn">MTN Mobile Money</option>
+                <option value="cih">CIH</option>
+                <option value="cashplus">CashPlus</option>
+                <option value="barid">Barid Bank</option>
                 <option value="orange">Orange Money</option>
-                <option value="wave">Wave</option>
-                <option value="djamo">Djamo</option>
+                <option value="inwi">Inwi</option>
+                <option value="attijariwafa">Attijariwafa bank</option>
               </select>
             </div>
 

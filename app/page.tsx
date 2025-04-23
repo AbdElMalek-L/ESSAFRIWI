@@ -269,7 +269,7 @@ export default function Home() {
       {/* WhatsApp Button */}
       <a
         href="https://wa.me/1234567890"
-        className="fixed p-4 text-white transition-all bg-green-500 rounded-full shadow-lg bottom-6 right-6 hover:bg-green-600 hover:scale-110"
+        className="fixed p-4 text-white transition-all bg-green-500 rounded-full shadow-lg bottom-6 right-6 hover:bg-green-600 hover:scale-110 z-[9999]"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contact us on WhatsApp"
@@ -292,12 +292,8 @@ const paymentMethods = [
 const applications = [
   { name: "1xBet", logo: "https://i.ibb.co/gMYRsJtY/image.png" },
   { name: "LineBet", logo: "https://i.ibb.co/TxsNrpsf/image.png" },
-  { name: "BetWinner", logo: "https://i.ibb.co/mrd51H81/image.png" },
+  { name: "Melbet", logo: "https://i.ibb.co/5WnRD0tz/image.png" },
   { name: "Paripulse", logo: "https://i.ibb.co/BVmQyG80/image.png" },
 ]
 
-const topApplications = [
-  { name: "1xBet", logo: "https://i.ibb.co/svxRXqrN/image.png", url: "https://1xbet.com" },
-  { name: "BetWinner", logo: "https://i.ibb.co/mrd51H81/image.png", url: "https://betwinner.com" },
-  { name: "LineBet", logo: "https://i.ibb.co/TxsNrpsf/image.png", url: "https://linebet.com" },
-]
+
