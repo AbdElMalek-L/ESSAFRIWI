@@ -172,7 +172,7 @@ export default function Home() {
               {paymentMethods.map((method) => (
                 <div
                   key={method.name}
-                  className="flex items-center justify-center p-1 bg-white/95 rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20 h-24"
+                  className="flex items-center justify-center p-1 bg-white  rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20 h-24"
                 >
                   <Image
                     src={method.logo || "/placeholder.svg"}
@@ -187,13 +187,13 @@ export default function Home() {
           </div>
 
           {/* Applications Section */}
-          <div className="p-6 gradient-card rounded-2xl shadow-xl backdrop-blur-md bg-slate-900/50 border border-sky-500/20">
-            <h2 className="mb-6 text-xl font-semibold text-center text-white">Applications</h2>
-            <div className="grid grid-cols-3 gap-4 sm:grid-cols-4">
+          <div className="p-8 gradient-card rounded-3xl shadow-2xl backdrop-blur-xl bg-slate-900/60 border border-sky-500/20 hover:border-sky-500/30 transition-all duration-300">
+            <h2 className="mb-8 text-2xl font-semibold text-center text-white">Applications</h2>
+            <div className="grid grid-cols-3 gap-6 sm:grid-cols-3 md:grid-cols-4">
               {applications.map((app) => (
                 <div
                   key={app.name}
-                  className="flex items-center justify-center bg-white/95 rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20 h-24"
+                  className="flex items-center justify-center p-1 bg-white rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20 h-28"
                 >
                   <Image
                     src={app.logo || "/placeholder.svg"}
@@ -219,26 +219,27 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Most Used Applications */}
+      {/* Promotional Messages Section */}
       <div className="px-4 py-20 mx-auto max-w-7xl">
-        <h2 className="mb-12 text-2xl font-medium text-center text-sky-300">Les applications les plus utilisées</h2>
-
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
-          {topApplications.map((app) => (
-            <Link
-              href={app.url}
-              key={app.name}
-              className="flex items-center justify-center p-6 transition-all glass-effect rounded-xl hover:scale-105 hover:shadow-lg hover:shadow-sky-500/10"
-            >
-              <Image
-                src={app.logo || "/placeholder.svg"}
-                alt={app.name}
-                width={240}
-                height={80}
-                className="object-contain filter drop-shadow-[0_0_5px_rgba(255,255,255,0.7)]"
-              />
-            </Link>
-          ))}
+        <h2 className="mb-12 text-3xl font-bold text-center text-sky-300"> Les Avantages</h2>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="p-8 gradient-card rounded-3xl shadow-2xl backdrop-blur-xl bg-slate-900/60 border border-sky-500/20 hover:border-sky-500/30 transition-all duration-300">
+            <p className="text-xl font-medium text-center text-white leading-relaxed" dir="rtl">
+              نوفر لكم خدامات الشحن والسحب باحسن الاثمنة وخدمات اسرع
+            </p>
+          </div>
+          
+          <div className="p-8 gradient-card rounded-3xl shadow-2xl backdrop-blur-xl bg-slate-900/60 border border-sky-500/20 hover:border-sky-500/30 transition-all duration-300">
+            <p className="text-xl font-medium text-center text-white leading-relaxed" dir="rtl">
+              ادخل الرمز التروجي <span className="text-sky-400 font-bold">MOKHTARI49</span> للحصول على المكفأة تصل 200%
+            </p>
+          </div>
+          
+          <div className="p-8 gradient-card rounded-3xl shadow-2xl backdrop-blur-xl bg-slate-900/60 border border-sky-500/20 hover:border-sky-500/30 transition-all duration-300">
+            <p className="text-xl font-medium text-center text-white leading-relaxed" dir="rtl">
+              يمكنك الان شحن حسابك بسرعة وضمان ووفر وقت اكثر
+            </p>
+          </div>
         </div>
       </div>
 
