@@ -8,7 +8,12 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Mokhtari49 - Recharge et Applications de Paris",
   description: "Rechargez vos comptes de paris sportifs et accédez aux meilleures applications de paris en ligne.",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: '/favicon.ico?v=2',
+    shortcut: '/favicon.ico?v=2',
+    apple: '/favicon.ico?v=2',
+  }
 }
 
 export default function RootLayout({
