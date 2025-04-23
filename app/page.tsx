@@ -149,9 +149,16 @@ export default function Home() {
           <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl">
             RECHARGEZ ET RETIREZ INSTANTANÉMENT AVEC ID
           </h1>
-          <p className="text-xl text-sky-300">
+          <p className="text-xl text-sky-300 mb-12">
             SIMPLICITÉ ET SÉCURITÉ GARANTIES !
           </p>
+          <Link
+            href="/recharge"
+            className="inline-flex items-center justify-center px-12 py-5 text-lg font-bold text-white transition-all duration-300 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 bg-gradient-to-r from-sky-500 via-blue-500 to-sky-500 hover:from-sky-600 hover:via-blue-600 hover:to-sky-600 relative overflow-hidden group"
+          >
+            <span className="relative z-10">RECHARGE</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-sky-400/20 via-blue-400/20 to-sky-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </Link>
         </div>
       </div>
 
@@ -177,7 +184,7 @@ export default function Home() {
               {paymentMethods.map((method) => (
                 <div
                   key={method.name}
-                  className="flex items-center justify-center p-1 bg-white rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20 h-24"
+                  className="flex items-center justify-center p-1 bg-white rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20 h-20"
                 >
                   <Image
                     src={method.logo || "/placeholder.svg"}
@@ -198,7 +205,7 @@ export default function Home() {
               {applications.map((app) => (
                 <div
                   key={app.name}
-                  className="flex items-center justify-center p-1 bg-white rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20 h-28"
+                  className="flex items-center justify-center p-1 bg-white rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20 h-20"
                 >
                   <Image
                     src={app.logo || "/placeholder.svg"}
