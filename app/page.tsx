@@ -143,27 +143,32 @@ export default function Home() {
         </div>
       )}
 
-      {/* New Hero Section */}
-      
-      {/* <Hero /> */}
-
-            {/* Hero Section */}
-
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://realt.by/uploads/pics/Stadion.jpg"
-            alt="Stadium Background"
-            fill
-            className="object-cover brightness-[0.3] transition-all duration-700"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-slate-900"></div>
+      {/* Hero Section */}
+      <div className="relative z-10 px-4 py-20 mx-auto max-w-7xl">
+        <div className="text-center">
+          <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl">
+            RECHARGEZ ET RETIREZ INSTANTANÉMENT AVEC ID
+          </h1>
+          <p className="text-xl text-sky-300">
+            SIMPLICITÉ ET SÉCURITÉ GARANTIES !
+          </p>
         </div>
+      </div>
 
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://realt.by/uploads/pics/Stadion.jpg"
+          alt="Stadium Background"
+          fill
+          className="object-cover brightness-[0.3] transition-all duration-700"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-slate-900"></div>
+      </div>
 
-
-      {/* Moved Payment/Apps Section */}
-      <div className="relative z-10 px-4 py-20 mx-auto max-w-7xl md:py-24">
+      {/* Payment/Apps Section */}
+      <div className="relative z-10 px-4 py-20 mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
           {/* Payment Methods Section */}
           <div className="p-8 gradient-card rounded-3xl shadow-2xl backdrop-blur-xl bg-slate-900/60 border border-sky-500/20 hover:border-sky-500/30 transition-all duration-300">
@@ -172,7 +177,7 @@ export default function Home() {
               {paymentMethods.map((method) => (
                 <div
                   key={method.name}
-                  className="flex items-center justify-center p-1 bg-white  rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20 h-24"
+                  className="flex items-center justify-center p-1 bg-white rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20 h-24"
                 >
                   <Image
                     src={method.logo || "/placeholder.svg"}
