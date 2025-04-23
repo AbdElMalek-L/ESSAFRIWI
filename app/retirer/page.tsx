@@ -3,12 +3,12 @@ import Image from "next/image"
 
 export default function RetirerPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0f172a] to-[#0a182b] text-white">
+    <div className="min-h-screen bg-black text-white">
       {/* Header */}
-      <header className="flex items-center justify-between px-4 py-4 bg-slate-900/80 backdrop-blur-md border-b border-sky-500/10 md:px-8 sticky top-0 z-50">
+      <header className="flex items-center justify-between px-4 py-4 bg-black/80 backdrop-blur-md border-b border-yellow-500/10 md:px-8 sticky top-0 z-50">
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold text-sky-400">
+            <span className="text-xl font-bold text-yellow-500">
               MOKHTARI<span className="text-white">49</span>
             </span>
           </Link>
@@ -17,23 +17,23 @@ export default function RetirerPage() {
         <nav className="hidden md:block">
           <ul className="flex items-center space-x-8">
             <li>
-              <Link href="/" className="text-white nav-link hover:text-sky-300">
+              <Link href="/" className="text-white nav-link hover:text-yellow-400">
                 HOME
               </Link>
             </li>
             <li>
-              <Link href="/recharge" className="text-white nav-link hover:text-sky-300">
+              <Link href="/recharge" className="text-white nav-link hover:text-yellow-400">
                 RECHARGE
               </Link>
             </li>
 
             <li>
-              <Link href="/retirer" className="text-sky-400 nav-link active hover:text-sky-300">
+              <Link href="/retirer" className="text-yellow-500 nav-link active hover:text-yellow-400">
                 RETIRER
               </Link>
             </li>
             <li>
-              <Link href="/contactez-nous" className="text-white nav-link hover:text-sky-300">
+              <Link href="/contactez-nous" className="text-white nav-link hover:text-yellow-400">
                 CONTACTEZ NOUS
               </Link>
             </li>
@@ -42,7 +42,7 @@ export default function RetirerPage() {
       </header>
 
       <div className="px-4 py-16 mx-auto max-w-4xl">
-        <h1 className="mb-8 text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-teal-400">
+        <h1 className="mb-8 text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-yellow-400">
           Retirer
         </h1>
 
@@ -53,7 +53,7 @@ export default function RetirerPage() {
 
           <form className="max-w-md mx-auto space-y-6">
             <div className="space-y-2">
-              <label htmlFor="withdraw-app" className="block text-sm font-medium text-sky-300">
+              <label htmlFor="withdraw-app" className="block text-sm font-medium text-yellow-400">
                 Application
               </label>
               <select id="withdraw-app" className="form-select">
@@ -67,7 +67,7 @@ export default function RetirerPage() {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="withdraw-id" className="block text-sm font-medium text-sky-300">
+              <label htmlFor="withdraw-id" className="block text-sm font-medium text-yellow-400">
                 ID ou Numéro de Téléphone
               </label>
               <input
@@ -79,7 +79,7 @@ export default function RetirerPage() {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="withdraw-amount" className="block text-sm font-medium text-sky-300">
+              <label htmlFor="withdraw-amount" className="block text-sm font-medium text-yellow-400">
                 Montant
               </label>
               <input
@@ -92,7 +92,7 @@ export default function RetirerPage() {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="withdraw-payment" className="block text-sm font-medium text-sky-300">
+              <label htmlFor="withdraw-payment" className="block text-sm font-medium text-yellow-400">
                 Méthode de Paiement
               </label>
               <select id="withdraw-payment" className="form-select">
@@ -106,7 +106,7 @@ export default function RetirerPage() {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="withdraw-phone" className="block text-sm font-medium text-sky-300">
+              <label htmlFor="withdraw-phone" className="block text-sm font-medium text-yellow-400">
                 Numéro de Téléphone pour Recevoir
               </label>
               <input
@@ -119,7 +119,7 @@ export default function RetirerPage() {
 
             <button
               type="submit"
-              className="w-full px-4 py-4 text-white transition-all rounded-lg shadow-lg btn-primary hover:shadow-sky-500/20"
+              className="w-full px-4 py-4 text-black transition-all rounded-lg shadow-lg btn-primary hover:shadow-yellow-500/20"
             >
               RETIRER MAINTENANT
             </button>

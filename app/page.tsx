@@ -9,12 +9,12 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   return (
-    <div className="min-h-screen bg-[#0f172a] text-white">
+    <div className="min-h-screen bg-black text-white">
       {/* Header */}
-      <header className="flex items-center justify-between px-6 py-5 bg-slate-900/90 backdrop-blur-xl border-b border-sky-500/20 md:px-10 sticky top-0 z-50 shadow-lg shadow-sky-500/5">
+      <header className="flex items-center justify-between px-6 py-5 bg-black/90 backdrop-blur-xl border-b border-yellow-500/20 md:px-10 sticky top-0 z-50 shadow-lg shadow-yellow-500/5">
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-3 group">
-            <span className="text-2xl font-bold text-sky-400 tracking-wider">
+            <span className="text-2xl font-bold text-yellow-500 tracking-wider">
               MOKHTARI<span className="text-white">49</span>
             </span>
           </Link>
@@ -22,7 +22,7 @@ export default function Home() {
 
         <Link
           href="/video"
-          className="hidden px-6 py-2.5 text-sm font-medium text-white transition-all border border-sky-500/30 rounded-full md:block hover:bg-sky-500/10 hover:border-sky-500/50 hover:shadow-lg hover:shadow-sky-500/10"
+          className="hidden px-6 py-2.5 text-sm font-medium text-white transition-all border border-yellow-500/30 rounded-full md:block hover:bg-yellow-500/10 hover:border-yellow-500/50 hover:shadow-lg hover:shadow-yellow-500/10"
         >
           VIDÉO EXPLICATIVE
         </Link>
@@ -30,23 +30,23 @@ export default function Home() {
         <nav className="hidden md:block">
           <ul className="flex items-center space-x-10">
             <li>
-              <Link href="/" className="text-sky-400 nav-link active hover:text-sky-300">
+              <Link href="/" className="text-yellow-500 nav-link active hover:text-yellow-400">
                 HOME
               </Link>
             </li>
             <li>
-              <Link href="/recharge" className="text-white nav-link hover:text-sky-300">
+              <Link href="/recharge" className="text-white nav-link hover:text-yellow-400">
                 RECHARGE
               </Link>
             </li>
 
             <li>
-              <Link href="/retirer" className="text-white nav-link hover:text-sky-300">
+              <Link href="/retirer" className="text-white nav-link hover:text-yellow-400">
                 RETIRER
               </Link>
             </li>
             <li>
-              <Link href="/contactez-nous" className="text-white nav-link hover:text-sky-300">
+              <Link href="/contactez-nous" className="text-white nav-link hover:text-yellow-400">
                 CONTACTEZ NOUS
               </Link>
             </li>
@@ -55,24 +55,10 @@ export default function Home() {
 
         <button 
           onClick={() => setIsMobileMenuOpen(true)} 
-          className="block md:hidden"
+          className="block md:hidden px-4 py-2 text-sm font-medium text-white transition-all border border-yellow-500/30 rounded-full hover:bg-yellow-500/10 hover:border-yellow-500/50 hover:shadow-lg hover:shadow-yellow-500/10"
           aria-label="Open menu"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="4" x2="20" y1="12" y2="12" />
-            <line x1="4" x2="20" y1="6" y2="6" />
-            <line x1="4" x2="20" y1="18" y2="18" />
-          </svg>
+          خدمات
         </button>
       </header>
 
@@ -80,14 +66,14 @@ export default function Home() {
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-50 md:hidden">
           <div 
-            className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
             onClick={() => setIsMobileMenuOpen(false)}
           ></div>
           
-          <div className="fixed right-0 top-0 bottom-0 w-[75%] max-w-sm bg-slate-900 p-6 shadow-xl">
+          <div className="fixed right-0 top-0 bottom-0 w-[75%] max-w-sm bg-black p-6 shadow-xl">
             <div className="flex items-center justify-between mb-8">
               <Link href="/" className="flex items-center gap-2">
-                <span className="text-xl font-bold text-sky-400">
+                <span className="text-xl font-bold text-yellow-500">
                   MOKHTARI<span className="text-white">49</span>
                 </span>
               </Link>
@@ -105,35 +91,35 @@ export default function Home() {
             <nav className="space-y-4">
               <Link 
                 href="/" 
-                className="block py-2 text-sky-400"
+                className="block py-2 text-yellow-500"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 HOME
               </Link>
               <Link 
                 href="/recharge" 
-                className="block py-2 text-white hover:text-sky-300"
+                className="block py-2 text-white hover:text-yellow-400"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 RECHARGE
               </Link>
               <Link 
                 href="/retirer" 
-                className="block py-2 text-white hover:text-sky-300"
+                className="block py-2 text-white hover:text-yellow-400"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 RETIRER
               </Link>
               <Link 
                 href="/contactez-nous" 
-                className="block py-2 text-white hover:text-sky-300"
+                className="block py-2 text-white hover:text-yellow-400"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 CONTACTEZ NOUS
               </Link>
               <Link
                 href="/video"
-                className="block px-6 py-2.5 text-sm font-medium text-white transition-all border border-sky-500/30 rounded-full hover:bg-sky-500/10 hover:border-sky-500/50 text-center mt-6"
+                className="block px-6 py-2.5 text-sm font-medium text-white transition-all border border-yellow-500/30 rounded-full hover:bg-yellow-500/10 hover:border-yellow-500/50 text-center mt-6"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 VIDÉO EXPLICATIVE
@@ -145,20 +131,41 @@ export default function Home() {
 
       {/* Hero Section */}
       <div className="relative z-10 px-4 py-20 mx-auto max-w-7xl">
-        <div className="text-center">
-          <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl">
-            RECHARGEZ ET RETIREZ INSTANTANÉMENT AVEC ID
+        <div className="text-center relative">
+          {/* Animated background particles */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute w-2 h-2 bg-yellow-500/20 rounded-full animate-float" style={{ left: '10%', top: '20%', animationDelay: '0s' }}></div>
+            <div className="absolute w-3 h-3 bg-yellow-500/30 rounded-full animate-float" style={{ left: '30%', top: '40%', animationDelay: '1s' }}></div>
+            <div className="absolute w-2 h-2 bg-yellow-500/20 rounded-full animate-float" style={{ left: '50%', top: '30%', animationDelay: '2s' }}></div>
+            <div className="absolute w-3 h-3 bg-yellow-500/30 rounded-full animate-float" style={{ left: '70%', top: '20%', animationDelay: '3s' }}></div>
+            <div className="absolute w-2 h-2 bg-yellow-500/20 rounded-full animate-float" style={{ left: '90%', top: '40%', animationDelay: '4s' }}></div>
+          </div>
+
+          {/* Glowing text effect */}
+          <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl animate-glow" dir="rtl">
+            نوفر لكم خدمات الشحن والسحب عن طريق ID
           </h1>
-          <p className="text-xl text-sky-300 mb-12">
-            SIMPLICITÉ ET SÉCURITÉ GARANTIES !
+          
+          {/* Animated subtitle with gradient text */}
+          <p className="text-xl text-yellow-500 mb-12 animate-pulse" dir="rtl">
+            ضمان البساطة والأمان!
           </p>
+
+          {/* Enhanced button with hover effects */}
           <Link
             href="/recharge"
-            className="inline-flex items-center justify-center px-12 py-5 text-lg font-bold text-white transition-all duration-300 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 bg-gradient-to-r from-sky-500 via-blue-500 to-sky-500 hover:from-sky-600 hover:via-blue-600 hover:to-sky-600 relative overflow-hidden group"
+            className="inline-flex items-center justify-center px-12 py-5 text-lg font-bold text-black transition-all duration-300 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 hover:from-yellow-600 hover:via-yellow-500 hover:to-yellow-600 relative overflow-hidden group"
           >
-            <span className="relative z-10">RECHARGE</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-sky-400/20 via-blue-400/20 to-sky-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span className="relative z-10">شحن</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-yellow-300/20 to-yellow-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            {/* Button shine effect */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute w-20 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine"></div>
+            </div>
           </Link>
+
+          {/* Decorative elements */}
+          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent rounded-full"></div>
         </div>
       </div>
 
@@ -171,20 +178,20 @@ export default function Home() {
           className="object-cover brightness-[0.3] transition-all duration-700"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-slate-900"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black"></div>
       </div>
 
       {/* Payment/Apps Section */}
       <div className="relative z-10 px-4 py-20 mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
           {/* Payment Methods Section */}
-          <div className="p-8 gradient-card rounded-3xl shadow-2xl backdrop-blur-xl bg-slate-900/60 border border-sky-500/20 hover:border-sky-500/30 transition-all duration-300">
+          <div className="p-8 gradient-card rounded-3xl shadow-2xl backdrop-blur-xl bg-black/60 border border-yellow-500/20 hover:border-yellow-500/30 transition-all duration-300">
             <h2 className="mb-8 text-2xl font-semibold text-center text-white">Méthodes De Paiement</h2>
             <div className="grid grid-cols-3 gap-6 sm:grid-cols-4">
               {paymentMethods.map((method) => (
                 <div
                   key={method.name}
-                  className="flex items-center justify-center p-1 bg-white rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20 h-20"
+                  className="flex items-center justify-center p-1 bg-white rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/20 h-20"
                 >
                   <Image
                     src={method.logo || "/placeholder.svg"}
@@ -199,13 +206,13 @@ export default function Home() {
           </div>
 
           {/* Applications Section */}
-          <div className="p-8 gradient-card rounded-3xl shadow-2xl backdrop-blur-xl bg-slate-900/60 border border-sky-500/20 hover:border-sky-500/30 transition-all duration-300">
+          <div className="p-8 gradient-card rounded-3xl shadow-2xl backdrop-blur-xl bg-black/60 border border-yellow-500/20 hover:border-yellow-500/30 transition-all duration-300">
             <h2 className="mb-8 text-2xl font-semibold text-center text-white">Applications</h2>
             <div className="grid grid-cols-3 gap-6 sm:grid-cols-3 md:grid-cols-4">
               {applications.map((app) => (
                 <div
                   key={app.name}
-                  className="flex items-center justify-center p-1 bg-white rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-sky-500/20 h-20"
+                  className="flex items-center justify-center p-1 bg-white rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/20 h-20"
                 >
                   <Image
                     src={app.logo || "/placeholder.svg"}
@@ -224,7 +231,7 @@ export default function Home() {
         <div className="flex justify-center mt-16">
           <Link
             href="/recharge"
-            className="px-12 py-5 text-lg font-bold text-white transition-all rounded-xl shadow-xl btn-primary hover:shadow-sky-500/30 hover:scale-105 duration-300"
+            className="px-12 py-5 text-lg font-bold text-black transition-all rounded-xl shadow-xl btn-primary hover:shadow-yellow-500/30 hover:scale-105 duration-300"
           >
             RECHARGE
           </Link>
@@ -233,21 +240,21 @@ export default function Home() {
 
       {/* Promotional Messages Section */}
       <div className="px-4 py-20 mx-auto max-w-7xl">
-        <h2 className="mb-12 text-3xl font-bold text-center text-sky-300"> Les Avantages</h2>
+        <h2 className="mb-12 text-3xl font-bold text-center text-yellow-500"> Les Avantages</h2>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          <div className="p-8 gradient-card rounded-3xl shadow-2xl backdrop-blur-xl bg-slate-900/60 border border-sky-500/20 hover:border-sky-500/30 transition-all duration-300">
+          <div className="p-8 gradient-card rounded-3xl shadow-2xl backdrop-blur-xl bg-black/60 border border-yellow-500/20 hover:border-yellow-500/30 transition-all duration-300">
             <p className="text-xl font-medium text-center text-white leading-relaxed" dir="rtl">
               نوفر لكم خدامات الشحن والسحب باحسن الاثمنة وخدمات اسرع
             </p>
           </div>
           
-          <div className="p-8 gradient-card rounded-3xl shadow-2xl backdrop-blur-xl bg-slate-900/60 border border-sky-500/20 hover:border-sky-500/30 transition-all duration-300">
+          <div className="p-8 gradient-card rounded-3xl shadow-2xl backdrop-blur-xl bg-black/60 border border-yellow-500/20 hover:border-yellow-500/30 transition-all duration-300">
             <p className="text-xl font-medium text-center text-white leading-relaxed" dir="rtl">
-              ادخل الرمز التروجي <span className="text-sky-400 font-bold">MOKHTARI49</span> للحصول على المكفأة تصل 200%
+              ادخل الرمز التروجي <span className="text-yellow-500 font-bold">MOKHTARI49</span> للحصول على المكفأة تصل 200%
             </p>
           </div>
           
-          <div className="p-8 gradient-card rounded-3xl shadow-2xl backdrop-blur-xl bg-slate-900/60 border border-sky-500/20 hover:border-sky-500/30 transition-all duration-300">
+          <div className="p-8 gradient-card rounded-3xl shadow-2xl backdrop-blur-xl bg-black/60 border border-yellow-500/20 hover:border-yellow-500/30 transition-all duration-300">
             <p className="text-xl font-medium text-center text-white leading-relaxed" dir="rtl">
               يمكنك الان شحن حسابك بسرعة وضمان ووفر وقت اكثر
             </p>
@@ -263,7 +270,7 @@ export default function Home() {
         rel="noopener noreferrer"
         aria-label="Contact us on WhatsApp"
       >
-        <WhatsappIcon size={28} />
+        <WhatsappIcon className="w-6 h-6" />
       </a>
     </div>
   )

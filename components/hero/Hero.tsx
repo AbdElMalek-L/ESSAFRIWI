@@ -15,7 +15,9 @@ const Hero = () => {
         />
       </div>
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-full"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-full"></div>
+      {/* Golden Border */}
+      <div className="absolute inset-0 rounded-full border-2 border-yellow-500/30"></div>
     </div>
   );
 };
