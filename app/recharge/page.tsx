@@ -1,11 +1,11 @@
 "use client"
 import Link from "next/link"
 import Image from "next/image"
-import { useState, useEffect, FormEvent } from "react"
+import { useState, useEffect, FormEvent, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import { applications, paymentMethods, isPhoneNumberMethod, formatRIB, formatPhoneNumber } from "@/lib/data"
 
-export default function RechargePage() {
+function RechargeContent() {
   const searchParams = useSearchParams()
   const [selectedApp, setSelectedApp] = useState<string | null>(null)
   const [selectedPayment, setSelectedPayment] = useState<string | null>(null)
@@ -267,5 +267,22 @@ export default function RechargePage() {
         </div>
       </div>
     </div>
+  )
+}
+
+// Loading state component
+function RechargeLoading() {
+  return (
+    <div className="min-h-screen bg-black text-white flex items-center justify-center" dir="rtl">
+      <p className="text-yellow-500 text-xl">جاري التحميل...</p>
+    </div>
+  )
+}
+
+export default function RechargePage() {
+  return (
+    <Suspense fallback={<RechargeLoading />}>
+      <RechargeContent />
+    </Suspense>
   )
 }
