@@ -1,11 +1,11 @@
 "use client"
 import Link from "next/link"
 import Image from "next/image"
-import { useState, FormEvent, useEffect } from "react"
+import { useState, FormEvent, useEffect, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import { formatRIB, formatPhoneNumber } from "@/lib/data"
 
-export default function RetirerPage() {
+function RetirerContent() {
   const searchParams = useSearchParams()
   const [selectedApp, setSelectedApp] = useState<string | null>(null)
   const [selectedPayment, setSelectedPayment] = useState<string | null>(null)
@@ -364,9 +364,7 @@ export default function RetirerPage() {
                 )}
               </div>
             </div>
-
             
-
             <button
               type="submit"
               className="w-full px-4 py-4 text-black transition-all rounded-lg shadow-lg btn-primary hover:shadow-yellow-500/20"
@@ -377,5 +375,22 @@ export default function RetirerPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+// Loading state component
+function RetirerLoading() {
+  return (
+    <div className="min-h-screen bg-black text-white flex items-center justify-center" dir="rtl">
+      <p className="text-yellow-500 text-xl">جاري التحميل...</p>
+    </div>
+  )
+}
+
+export default function RetirerPage() {
+  return (
+    <Suspense fallback={<RetirerLoading />}>
+      <RetirerContent />
+    </Suspense>
   )
 }
