@@ -242,12 +242,18 @@ export default function Home() {
         </div>
 
         {/* Recharge Button */}
-        <div className="flex justify-center mt-16">
+        <div className="flex justify-center gap-4 mt-16">
           <Link
             href={`/recharge${selectedApp || selectedPaymentMethod ? `?app=${selectedApp}&method=${selectedPaymentMethod}` : ""}`}
             className="px-12 py-5 text-lg font-bold text-black transition-all rounded-xl shadow-xl btn-primary hover:shadow-yellow-500/30 hover:scale-105 duration-300"
           >
             RECHARGE
+          </Link>
+          <Link
+            href={`/retirer${selectedApp || selectedPaymentMethod ? `?app=${selectedApp}&method=${selectedPaymentMethod}` : ""}`}
+            className="px-12 py-5 text-lg font-bold text-black transition-all rounded-xl shadow-xl btn-primary hover:shadow-yellow-500/30 hover:scale-105 duration-300"
+          >
+            RETIRER
           </Link>
         </div>
         
