@@ -1,11 +1,32 @@
 "use client"
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, FormEvent, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
+import { formatRIB, formatPhoneNumber } from "@/lib/data"
 
 export default function RetirerPage() {
+  const searchParams = useSearchParams()
   const [selectedApp, setSelectedApp] = useState<string | null>(null)
   const [selectedPayment, setSelectedPayment] = useState<string | null>(null)
+  const [accountId, setAccountId] = useState("")
+  const [withdrawalCode, setWithdrawalCode] = useState("")
+  const [bankAccount, setBankAccount] = useState("")
+  const [fullName, setFullName] = useState("")
+
+  // Get URL parameters on page load
+  useEffect(() => {
+    const appParam = searchParams.get('app')
+    const methodParam = searchParams.get('method')
+    
+    if (appParam) {
+      setSelectedApp(appParam)
+    }
+    
+    if (methodParam) {
+      setSelectedPayment(methodParam)
+    }
+  }, [searchParams])
 
   const formatRIB = (rib: string) => {
     // Remove any existing spaces
@@ -64,6 +85,50 @@ export default function RetirerPage() {
     },
   ]
 
+  const appInfo = {
+    "Paripulse": {
+      city: "berkane",
+      address: "special BM49"
+    },
+    "LineBet": {
+      city: "berkane",
+      address: "4 mokhtari49"
+    },
+    "1xBet": {
+      city: "berkane",
+      address: "#BM49"
+    },
+    "Melbet": {
+      city: "",
+      address: ""
+    }
+  }
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault()
+    
+    // Validate form
+    if (!selectedApp || !accountId || !withdrawalCode || !selectedPayment || !bankAccount || !fullName) {
+      alert("يرجى ملء جميع الحقول المطلوبة")
+      return
+    }
+    
+    // Prepare message for WhatsApp
+    const message = `طلب سحب الأموال:
+التطبيق: ${selectedApp}
+رقم الحساب (ID): ${accountId}
+كود السحب: ${withdrawalCode}
+رقم الحساب البنكي: ${bankAccount}
+الاسم الكامل: ${fullName}
+طريقة الدفع: ${selectedPayment}`
+    
+    // Construct WhatsApp URL
+    const whatsappUrl = `https://wa.me/212630813193?text=${encodeURIComponent(message)}`
+    
+    // Open WhatsApp in new tab
+    window.open(whatsappUrl, '_blank')
+  }
+
   return (
     <div className="min-h-screen bg-black text-white" dir="rtl">
       {/* Header */}
@@ -113,7 +178,7 @@ export default function RetirerPage() {
             اسحب أرباحك بسهولة وسرعة إلى طريقة الدفع المفضلة لديك.
           </p>
 
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="space-y-2">
               <label htmlFor="app" className="block text-sm font-medium text-yellow-400">
                 التطبيق
@@ -175,18 +240,76 @@ export default function RetirerPage() {
               </div>
             </div>
 
+            {selectedApp && appInfo[selectedApp as keyof typeof appInfo] && (
+              <div className="p-4 mb-2 border border-yellow-500/20 rounded-lg bg-yellow-500/5">
+                <h3 className="mb-2 text-yellow-400 font-medium">عنوان السحب</h3>
+                {appInfo[selectedApp as keyof typeof appInfo].city && (
+                  <p className="text-gray-300">المدينة: {appInfo[selectedApp as keyof typeof appInfo].city}</p>
+                )}
+                {appInfo[selectedApp as keyof typeof appInfo].address && (
+                  <p className="text-gray-300">العنوان: {appInfo[selectedApp as keyof typeof appInfo].address}</p>
+                )}
+              </div>
+            )}
+
             <div className="space-y-2">
               <label htmlFor="id" className="block text-sm font-medium text-yellow-400">
-                المعرف أو رقم الهاتف
+                رقم الحساب (ID)
               </label>
-              <input type="text" id="id" className="form-input text-right" placeholder="أدخل المعرف أو رقم الهاتف الخاص بك" />
+              <input 
+                type="text" 
+                id="id" 
+                className="form-input text-right" 
+                placeholder="رقم الحساب (ID)" 
+                value={accountId}
+                onChange={(e) => setAccountId(e.target.value)}
+                required
+              />
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="amount" className="block text-sm font-medium text-yellow-400">
-                المبلغ
+              <label htmlFor="withdrawalCode" className="block text-sm font-medium text-yellow-400">
+                كود السحب
               </label>
-              <input type="number" id="amount" className="form-input text-right" placeholder="أدخل المبلغ" min="1" />
+              <input 
+                type="text" 
+                id="withdrawalCode" 
+                className="form-input text-right" 
+                placeholder="كود السحب" 
+                value={withdrawalCode}
+                onChange={(e) => setWithdrawalCode(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label htmlFor="bankAccount" className="block text-sm font-medium text-yellow-400">
+                رقم الحساب البنكي
+              </label>
+              <input 
+                type="text" 
+                id="bankAccount" 
+                className="form-input text-right" 
+                placeholder="رقم الحساب البنكي" 
+                value={bankAccount}
+                onChange={(e) => setBankAccount(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label htmlFor="fullName" className="block text-sm font-medium text-yellow-400">
+                الاسم الكامل لصاحب الحساب
+              </label>
+              <input 
+                type="text" 
+                id="fullName" 
+                className="form-input text-right" 
+                placeholder="الاسم الكامل لصاحب الحساب" 
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                required
+              />
             </div>
 
             <div className="space-y-2">
@@ -215,16 +338,6 @@ export default function RetirerPage() {
                   </div>
                   <div className="flex flex-col flex-1 text-right">
                     <span className="text-white">{selectedPayment || 'اختر طريقة الدفع'}</span>
-                    {selectedPayment && (
-                      <div className="flex flex-col mt-2 space-y-1">
-                        <span className="text-sm text-gray-400">الاسم: {paymentMethods.find(method => method.name === selectedPayment)?.accountName}</span>
-                        {isPhoneNumberMethod(selectedPayment) ? (
-                          <span className="text-sm text-gray-400 font-mono">الرقم: {formatPhoneNumber(paymentMethods.find(method => method.name === selectedPayment)?.rib || '')}</span>
-                        ) : (
-                          <span className="text-sm text-gray-400 font-mono" >RIB: {formatRIB(paymentMethods.find(method => method.name === selectedPayment)?.rib || '')}</span>
-                        )}
-                      </div>
-                    )}
                   </div>
                 </button>
                 {selectedPayment === '' && (
@@ -244,17 +357,7 @@ export default function RetirerPage() {
                             className="object-contain p-1"
                           />
                         </div>
-                        <div className="flex flex-col flex-1 text-right">
-                          <span className="text-white text-sm sm:text-base">{method.name}</span>
-                          <div className="flex flex-col mt-0.5 space-y-0.5 sm:mt-1 sm:space-y-1">
-                            <span className="text-xs text-gray-400 sm:text-sm">الاسم: {method.accountName}</span>
-                            {isPhoneNumberMethod(method.name) ? (
-                              <span className="text-xs text-gray-400 sm:text-sm font-mono">الرقم: {formatPhoneNumber(method.rib)}</span>
-                            ) : (
-                              <span className="text-xs text-gray-400 sm:text-sm font-mono">RIB: {formatRIB(method.rib)}</span>
-                            )}
-                          </div>
-                        </div>
+                        <span className="text-white text-sm sm:text-base flex-1 text-right">{method.name}</span>
                       </button>
                     ))}
                   </div>
@@ -262,12 +365,7 @@ export default function RetirerPage() {
               </div>
             </div>
 
-            <div className="space-y-2">
-              <label htmlFor="phone" className="block text-sm font-medium text-yellow-400">
-                رقم الهاتف للاستلام
-              </label>
-              <input type="tel" id="phone" className="form-input text-right" placeholder="أدخل رقم الهاتف" />
-            </div>
+            
 
             <button
               type="submit"
