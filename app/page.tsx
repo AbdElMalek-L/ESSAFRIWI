@@ -6,9 +6,12 @@ import { Instagram, Facebook } from "lucide-react"
 import Hero from "@/components/hero/Hero"
 import FallingDollars from "@/components/hero/FallingDollars"
 import { useState } from "react"
+import { applications, paymentMethods } from "@/lib/data"
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [selectedApp, setSelectedApp] = useState("")
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("")
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -196,7 +199,10 @@ export default function Home() {
               {paymentMethods.map((method) => (
                 <div
                   key={method.name}
-                  className="flex items-center justify-center p-1 bg-white rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/20 h-20"
+                  className={`flex items-center justify-center p-1 bg-white rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/20 h-20 cursor-pointer ${
+                    selectedPaymentMethod === method.name ? "ring-2 ring-yellow-500 scale-105" : ""
+                  }`}
+                  onClick={() => setSelectedPaymentMethod(method.name)}
                 >
                   <Image
                     src={method.logo || "/placeholder.svg"}
@@ -217,7 +223,10 @@ export default function Home() {
               {applications.map((app) => (
                 <div
                   key={app.name}
-                  className="flex items-center justify-center p-1 bg-white rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/20 h-20"
+                  className={`flex items-center justify-center p-1 bg-white rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/20 h-20 cursor-pointer ${
+                    selectedApp === app.name ? "ring-2 ring-yellow-500 scale-105" : ""
+                  }`}
+                  onClick={() => setSelectedApp(app.name)}
                 >
                   <Image
                     src={app.logo || "/placeholder.svg"}
@@ -235,12 +244,19 @@ export default function Home() {
         {/* Recharge Button */}
         <div className="flex justify-center mt-16">
           <Link
-            href="/recharge"
+            href={`/recharge${selectedApp || selectedPaymentMethod ? `?app=${selectedApp}&method=${selectedPaymentMethod}` : ""}`}
             className="px-12 py-5 text-lg font-bold text-black transition-all rounded-xl shadow-xl btn-primary hover:shadow-yellow-500/30 hover:scale-105 duration-300"
           >
             RECHARGE
           </Link>
         </div>
+        
+        {(selectedApp || selectedPaymentMethod) && (
+          <div className="mt-4 text-center text-yellow-500">
+            {selectedApp && <span className="mr-3">Application: {selectedApp}</span>}
+            {selectedPaymentMethod && <span>Méthode: {selectedPaymentMethod}</span>}
+          </div>
+        )}
       </div>
 
       {/* Promotional Messages Section */}
@@ -313,21 +329,5 @@ export default function Home() {
     </div>
   )
 }
-
-const paymentMethods = [
-  { name: "CIH", logo: "https://i.ibb.co/Kx8ydnrM/image.png" },
-  { name: "CashPlus", logo: "https://i.ibb.co/DHH7d06f/image.png" },
-  { name: "Barid Bank", logo: "https://i.ibb.co/kNQWLtz/image.png" },
-  { name: "Orange", logo: "https://i.ibb.co/cXCz47CP/image.png" },
-  { name: "Inwi", logo: "https://i.ibb.co/svhKsQMV/image.png" },
-  { name: "Attijariwafa bank", logo: "https://i.ibb.co/b5KvZbSJ/image.png" },
-]
-
-const applications = [
-  { name: "1xBet", logo: "https://i.ibb.co/gMYRsJtY/image.png" },
-  { name: "LineBet", logo: "https://i.ibb.co/TxsNrpsf/image.png" },
-  { name: "Melbet", logo: "https://i.ibb.co/5WnRD0tz/image.png" },
-  { name: "Paripulse", logo: "https://i.ibb.co/BVmQyG80/image.png" },
-]
 
 
