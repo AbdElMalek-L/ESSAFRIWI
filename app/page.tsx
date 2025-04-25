@@ -137,9 +137,11 @@ export default function Home() {
       {/* Hero Section */}
       <div className="relative z-10 px-4 py-20 mx-auto max-w-7xl">
         <div className="text-center relative">
-          {/* Falling Dollars */}
-          <FallingDollars />
-
+          {/* Falling Dollars specific to hero section */}
+          <div className="absolute inset-0 overflow-visible h-screen w-full" style={{ zIndex: 15, top: '-20%', left: 0, right: 0, bottom: 0 }}>
+            <FallingDollars />
+          </div>
+          
           {/* Animated background particles */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute w-2 h-2 bg-yellow-500/20 rounded-full animate-float" style={{ left: '10%', top: '20%', animationDelay: '0s' }}></div>
@@ -150,19 +152,19 @@ export default function Home() {
           </div>
 
           {/* Glowing text effect */}
-          <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl animate-glow" dir="rtl">
+          <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl animate-glow z-20 relative" dir="rtl">
             نوفر لكم خدمات الشحن والسحب عن طريق ID
           </h1>
           
           {/* Animated subtitle with gradient text */}
-          <p className="text-xl text-yellow-500 mb-12 animate-pulse" dir="rtl">
+          <p className="text-xl text-yellow-500 mb-12 animate-pulse z-20 relative" dir="rtl">
             ضمان البساطة والأمان!
           </p>
 
           {/* Enhanced button with hover effects */}
           <Link
             href="/recharge"
-            className="inline-flex items-center justify-center px-12 py-5 text-lg font-bold text-black transition-all duration-300 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 hover:from-yellow-600 hover:via-yellow-500 hover:to-yellow-600 relative overflow-hidden group"
+            className="inline-flex items-center justify-center px-12 py-5 text-lg font-bold text-black transition-all duration-300 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 hover:from-yellow-600 hover:via-yellow-500 hover:to-yellow-600 relative overflow-hidden group z-20"
           >
             <span className="relative z-10">شحن</span>
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-yellow-300/20 to-yellow-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -245,13 +247,13 @@ export default function Home() {
         <div className="flex justify-center gap-4 mt-16">
           <Link
             href={`/recharge${selectedApp || selectedPaymentMethod ? `?app=${selectedApp}&method=${selectedPaymentMethod}` : ""}`}
-            className="px-12 py-5 text-lg font-bold text-black transition-all rounded-xl shadow-xl btn-primary hover:shadow-yellow-500/30 hover:scale-105 duration-300"
+            className="px-4 py-5 text-lg font-bold text-black transition-all rounded-xl shadow-xl btn-primary hover:shadow-yellow-500/30 hover:scale-105 duration-300"
           >
             RECHARGE
           </Link>
           <Link
             href={`/retirer${selectedApp || selectedPaymentMethod ? `?app=${selectedApp}&method=${selectedPaymentMethod}` : ""}`}
-            className="px-12 py-5 text-lg font-bold text-black transition-all rounded-xl shadow-xl btn-primary hover:shadow-yellow-500/30 hover:scale-105 duration-300"
+            className="px-4 py-5 text-lg font-bold text-black transition-all rounded-xl shadow-xl btn-primary hover:shadow-yellow-500/30 hover:scale-105 duration-300"
           >
             RETIRER
           </Link>
@@ -332,6 +334,128 @@ export default function Home() {
           </svg>
         </a>
       </div>
+
+      {/* Footer */}
+      <footer className="relative z-10 bg-black/80 backdrop-blur-md border-t border-yellow-500/20 py-10 mt-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Logo and description */}
+            <div>
+              <Link href="/" className="flex items-center gap-2 mb-4">
+                <span className="text-2xl font-bold text-yellow-500">
+                  MOKHTARI<span className="text-white">49</span>
+                </span>
+              </Link>
+              <p className="text-gray-400 mb-6" dir="rtl">
+                نوفر لكم خدمات الشحن والسحب بأفضل الأسعار وخدمة سريعة وآمنة
+              </p>
+              <div className="flex space-x-4">
+                <a
+                  href="https://www.instagram.com/mokhtari492025?igsh=cDVsNTVhcmp0ZWFi"
+                  className="text-gray-400 hover:text-yellow-500 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61575060880665&mibextid=ZbWKwL"
+                  className="text-gray-400 hover:text-yellow-500 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://t.me/mokhtarilinebet"
+                  className="text-gray-400 hover:text-yellow-500 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.95 1.24-5.5 3.65-.52.36-.99.53-1.41.52-.46-.01-1.35-.26-2.01-.48-.81-.27-1.45-.42-1.4-.88.03-.24.37-.49 1.02-.75 3.95-1.71 6.58-2.84 7.9-3.38 3.8-1.61 4.59-1.89 5.11-1.89.11 0 .36.03.52.18.14.13.18.31.2.51-.01.17-.01.5-.01.5z"/>
+                  </svg>
+                </a>
+                <a
+                  href="https://wa.me/message/2BHOXDKUVVCBK1"
+                  className="text-gray-400 hover:text-yellow-500 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <WhatsappIcon className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Liens Rapides</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/" className="text-gray-400 hover:text-yellow-500 transition-colors">
+                    Accueil
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/recharge" className="text-gray-400 hover:text-yellow-500 transition-colors">
+                    Recharge
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/retirer" className="text-gray-400 hover:text-yellow-500 transition-colors">
+                    Retirer
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/video" className="text-gray-400 hover:text-yellow-500 transition-colors">
+                    Vidéo Explicative
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contactez-nous" className="text-gray-400 hover:text-yellow-500 transition-colors">
+                    Contactez Nous
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Contact</h3>
+              <ul className="space-y-3">
+                <li className="flex items-center text-gray-400">
+                  <WhatsappIcon className="w-5 h-5 mr-2 text-yellow-500" />
+                  <a 
+                    href="https://wa.me/message/2BHOXDKUVVCBK1" 
+                    className="hover:text-yellow-500 transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    WhatsApp
+                  </a>
+                </li>
+                <li className="flex items-center text-gray-400">
+                  <svg className="w-5 h-5 mr-2 text-yellow-500" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.95 1.24-5.5 3.65-.52.36-.99.53-1.41.52-.46-.01-1.35-.26-2.01-.48-.81-.27-1.45-.42-1.4-.88.03-.24.37-.49 1.02-.75 3.95-1.71 6.58-2.84 7.9-3.38 3.8-1.61 4.59-1.89 5.11-1.89.11 0 .36.03.52.18.14.13.18.31.2.51-.01.17-.01.5-.01.5z"/>
+                  </svg>
+                  <a 
+                    href="https://t.me/mokhtarilinebet" 
+                    className="hover:text-yellow-500 transition-colors"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    Telegram
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="border-t border-yellow-500/10 mt-8 pt-8 text-center text-gray-400 text-sm">
+            <p>© {new Date().getFullYear()} MOKHTARI49. Tous droits réservés.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }

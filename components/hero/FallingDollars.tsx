@@ -20,7 +20,7 @@ const FallingDollars = () => {
       id: i,
       x: Math.random() * 100,
       y: -10 - Math.random() * 100,
-      size: 1 + Math.random() * 2,
+      size: 0.8 + Math.random() * 1.5, // Slightly smaller dollars
       delay: Math.random() * 5,
       speed: 0.5 + Math.random() * 1.5,
       rotation: Math.random() * 360,
@@ -31,12 +31,16 @@ const FallingDollars = () => {
     const interval = setInterval(() => {
       setDollars((prevDollars) =>
         prevDollars.map((dollar) => {
-          const pageHeight = document.documentElement.scrollHeight;
-          if (dollar.y > pageHeight) {
-            // Reset position when dollar reaches bottom of page
+          // Use viewport height for calculations
+          const viewportHeight = window.innerHeight;
+          // Limit the animation area to the hero section (roughly)
+          const heroHeight = viewportHeight * 0.8;
+          
+          if (dollar.y > heroHeight) {
+            // Reset position when dollar reaches bottom of hero section
             return {
               ...dollar,
-              y: -10,
+              y: -10 - Math.random() * 20,
               x: Math.random() * 100,
               rotation: Math.random() * 360,
             };
@@ -51,29 +55,16 @@ const FallingDollars = () => {
       );
     }, 16); // ~60fps
 
-    // Handle scroll events to update positions
-    const handleScroll = () => {
-      setDollars((prevDollars) =>
-        prevDollars.map((dollar) => ({
-          ...dollar,
-          y: dollar.y + window.scrollY,
-        }))
-      );
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
     return () => {
       clearInterval(interval);
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 overflow-hidden pointer-events-none z-0"
-      style={{ height: '100%' }}
+      className="absolute inset-0 overflow-visible pointer-events-none"
+      style={{ height: '100%', width: '100%' }}
     >
       {dollars.map((dollar) => (
         <div
@@ -84,9 +75,9 @@ const FallingDollars = () => {
             top: `${dollar.y}px`,
             fontSize: `${dollar.size}rem`,
             animationDelay: `${dollar.delay}s`,
-            opacity: 0.4 + Math.random() * 0.3,
+            opacity: 0.7 + Math.random() * 0.3,
             transform: `rotate(${dollar.rotation}deg)`,
-            textShadow: '0 0 10px rgba(212, 175, 55, 0.5)',
+            textShadow: '0 0 10px rgba(212, 175, 55, 0.7)',
             transition: 'transform 0.1s ease-out',
             willChange: 'transform',
           }}
