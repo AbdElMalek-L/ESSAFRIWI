@@ -140,7 +140,7 @@ export default function Home() {
 
         <div className="text-center relative">
           {/* Falling Dollars specific to hero section */}
-          <div className="absolute inset-0 overflow-hidden h-screen w-screen" style={{ zIndex: 15, top: '-20%', left: 0, right: 0, bottom: 0 }}>
+          <div className="absolute inset-0 overflow-hidden h-screen w-full" style={{ zIndex: 15, top: '-20%', left: 0, right: 0, bottom: 0 }}>
             <FallingDollars />
           </div>
           
