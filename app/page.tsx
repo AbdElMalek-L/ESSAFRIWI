@@ -19,7 +19,7 @@ export default function Home() {
       <header className="flex items-center justify-between px-6 py-5 bg-black/90 backdrop-blur-xl border-b border-yellow-500/20 md:px-10 sticky top-0 z-50 shadow-lg shadow-yellow-500/5">
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-3 group">
-            <span className="text-2xl font-bold text-yellow-500 tracking-wider">
+            <span className="text-xl font-bold text-yellow-500 tracking-wider">
               MOKHTARI<span className="text-white">49</span>
             </span>
           </Link>
@@ -134,11 +134,13 @@ export default function Home() {
         </div>
       )}
 
+
       {/* Hero Section */}
       <div className="relative z-10 px-4 py-20 mx-auto max-w-7xl">
+
         <div className="text-center relative">
           {/* Falling Dollars specific to hero section */}
-          <div className="absolute inset-0 overflow-visible h-screen w-full" style={{ zIndex: 15, top: '-20%', left: 0, right: 0, bottom: 0 }}>
+          <div className="absolute inset-0 overflow-hidden h-screen w-screen" style={{ zIndex: 15, top: '-20%', left: 0, right: 0, bottom: 0 }}>
             <FallingDollars />
           </div>
           

@@ -45,10 +45,15 @@ const FallingDollars = () => {
               rotation: Math.random() * 360,
             };
           }
+          // Calculate new x position with boundaries
+          const newX = dollar.x + Math.sin(dollar.y * 0.01) * 0.3;
+          // Constrain x position between 0 and 100
+          const boundedX = Math.max(0, Math.min(100, newX));
+          
           return {
             ...dollar,
             y: dollar.y + dollar.speed,
-            x: dollar.x + Math.sin(dollar.y * 0.01) * 0.3, // Slight swaying motion
+            x: boundedX, // Use bounded x value
             rotation: dollar.rotation + 0.5, // Continuous rotation
           };
         })
@@ -63,7 +68,7 @@ const FallingDollars = () => {
   return (
     <div 
       ref={containerRef}
-      className="absolute inset-0 overflow-visible pointer-events-none"
+      className="absolute inset-0 overflow-hidden pointer-events-none"
       style={{ height: '100%', width: '100%' }}
     >
       {dollars.map((dollar) => (
@@ -89,4 +94,4 @@ const FallingDollars = () => {
   );
 };
 
-export default FallingDollars; 
+export default FallingDollars;
