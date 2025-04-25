@@ -207,7 +207,7 @@ function RechargeContent() {
                       <div className="flex flex-col mt-2 space-y-1">
                         <span className="text-sm text-gray-400">الاسم: {paymentMethods.find(method => method.name === selectedPayment)?.accountName}</span>
                         {isPhoneNumberMethod(selectedPayment) ? (
-                          <span className="text-sm text-gray-400 font-mono">الرقم: {formatPhoneNumber(paymentMethods.find(method => method.name === selectedPayment)?.rib || '')}</span>
+                          <span className="text-sm text-gray-400 font-mono" style={{ direction: 'ltr' }}>الرقم: {formatPhoneNumber(paymentMethods.find(method => method.name === selectedPayment)?.rib || '')}</span>
                         ) : (
                           <span className="text-sm text-gray-400 font-mono" >RIB: {formatRIB(paymentMethods.find(method => method.name === selectedPayment)?.rib || '')}</span>
                         )}
@@ -237,7 +237,7 @@ function RechargeContent() {
                           <div className="flex flex-col mt-0.5 space-y-0.5 sm:mt-1 sm:space-y-1">
                             <span className="text-xs text-gray-400 sm:text-sm">الاسم: {method.accountName}</span>
                             {isPhoneNumberMethod(method.name) ? (
-                              <span className="text-xs text-gray-400 sm:text-sm font-mono">الرقم: {formatPhoneNumber(method.rib)}</span>
+                              <span className="text-xs text-gray-400 sm:text-sm font-mono" style={{ direction: 'ltr' }}>الرقم: {formatPhoneNumber(method.rib)}</span>
                             ) : (
                               <span className="text-xs text-gray-400 sm:text-sm font-mono">RIB: {formatRIB(method.rib)}</span>
                             )}

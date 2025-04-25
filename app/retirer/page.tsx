@@ -3,7 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState, FormEvent, useEffect, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
-import { formatRIB, formatPhoneNumber } from "@/lib/data"
+import { applications, paymentMethods, isPhoneNumberMethod, formatRIB, formatPhoneNumber } from "@/lib/data"
 
 function RetirerContent() {
   const searchParams = useSearchParams()
@@ -27,63 +27,6 @@ function RetirerContent() {
       setSelectedPayment(methodParam)
     }
   }, [searchParams])
-
-  const formatRIB = (rib: string) => {
-    // Remove any existing spaces
-    const cleaned = rib.replace(/\s/g, '');
-    // Add a space every 4 characters
-    return cleaned.match(/.{1,4}/g)?.join(' ') || rib;
-  }
-
-  const formatPhoneNumber = (number: string) => {
-    // Remove any existing spaces
-    const cleaned = number.replace(/\s/g, '');
-    // Add a space every 2 characters
-    return cleaned.match(/.{1,2}/g)?.join(' ') || number;
-  }
-
-  const isPhoneNumberMethod = (name: string) => {
-    return ['Orange', 'Inwi', 'CashPlus'].includes(name);
-  }
-
-  const paymentMethods = [
-    { 
-      name: "CIH", 
-      logo: "https://i.ibb.co/Kx8ydnrM/image.png",
-      rib: "6313 1522 1100 8300",
-      accountName: "BELKACEM MOKHTARI"
-    },
-    { 
-      name: "CashPlus", 
-      logo: "https://i.ibb.co/DHH7d06f/image.png",
-      rib: "0712137400",
-      accountName: "BELKACEM MOKHTARI"
-    },
-    { 
-      name: "Barid Bank", 
-      logo: "https://i.ibb.co/kNQWLtz/image.png",
-      rib: "",
-      accountName: "BELKACEM MOKHTARI"
-    },
-    { 
-      name: "Orange", 
-      logo: "https://i.ibb.co/cXCz47CP/image.png",
-      rib: "0712137400",
-      accountName: "BELKACEM MOKHTARI"
-    },
-    { 
-      name: "Inwi", 
-      logo: "https://i.ibb.co/svhKsQMV/image.png",
-      rib: "",
-      accountName: "BELKACEM MOKHTARI"
-    },
-    { 
-      name: "Attijariwafa bank", 
-      logo: "https://i.ibb.co/b5KvZbSJ/image.png",
-      rib: "0075 7500 0788 2000 3040 5179",
-      accountName: "BELKACEM MOKHTARI"
-    },
-  ]
 
   const appInfo = {
     "Paripulse": {
@@ -338,6 +281,16 @@ function RetirerContent() {
                   </div>
                   <div className="flex flex-col flex-1 text-right">
                     <span className="text-white">{selectedPayment || 'اختر طريقة الدفع'}</span>
+                    {selectedPayment && (
+                      <div className="flex flex-col mt-2 space-y-1">
+                        <span className="text-sm text-gray-400">الاسم: {paymentMethods.find(method => method.name === selectedPayment)?.accountName}</span>
+                        {isPhoneNumberMethod(selectedPayment) ? (
+                          <span className="text-sm text-gray-400 font-mono">الرقم: {formatPhoneNumber(paymentMethods.find(method => method.name === selectedPayment)?.rib || '')}</span>
+                        ) : (
+                          <span className="text-sm text-gray-400 font-mono" >RIB: {formatRIB(paymentMethods.find(method => method.name === selectedPayment)?.rib || '')}</span>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </button>
                 {selectedPayment === '' && (
@@ -357,7 +310,17 @@ function RetirerContent() {
                             className="object-contain p-1"
                           />
                         </div>
-                        <span className="text-white text-sm sm:text-base flex-1 text-right">{method.name}</span>
+                        <div className="flex flex-col flex-1 text-right">
+                          <span className="text-white text-sm sm:text-base">{method.name}</span>
+                          <div className="flex flex-col mt-0.5 space-y-0.5 sm:mt-1 sm:space-y-1">
+                            <span className="text-xs text-gray-400 sm:text-sm">الاسم: {method.accountName}</span>
+                            {isPhoneNumberMethod(method.name) ? (
+                              <span className="text-xs text-gray-400 sm:text-sm font-mono">الرقم: {formatPhoneNumber(method.rib)}</span>
+                            ) : (
+                              <span className="text-xs text-gray-400 sm:text-sm font-mono">RIB: {formatRIB(method.rib)}</span>
+                            )}
+                          </div>
+                        </div>
                       </button>
                     ))}
                   </div>

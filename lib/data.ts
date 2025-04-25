@@ -58,6 +58,13 @@ export const formatRIB = (rib: string) => {
 export const formatPhoneNumber = (number: string) => {
   // Remove any existing spaces
   const cleaned = number.replace(/\s/g, '');
-  // Add a space every 2 characters
-  return cleaned.match(/.{1,2}/g)?.join(' ') || number;
-} 
+  
+  // Format the phone number to be in the correct pattern
+  if (cleaned.length === 10) {
+    return `${cleaned.substring(8, 10)} ${cleaned.substring(6, 8)} ${cleaned.substring(4, 6)} ${cleaned.substring(2, 4)} ${cleaned.substring(0, 2)}`;
+  }
+  
+  // Fallback for numbers of different lengths
+  const groups = cleaned.match(/.{1,2}/g) || [];
+  return groups.reverse().join(' ') || number;
+}
