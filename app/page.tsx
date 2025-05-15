@@ -6,7 +6,7 @@ import { Instagram, Facebook } from "lucide-react"
 import Hero from "@/components/hero/Hero"
 import FallingDollars from "@/components/hero/FallingDollars"
 import { useState } from "react"
-import { applications, paymentMethods, headerLogoUrl } from "@/lib/data"
+import { applications, paymentMethods, headerLogoUrl, contactInfo } from "@/lib/data"
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -335,7 +335,7 @@ export default function Home() {
       {/* Social Media Buttons */}
       <div className="fixed bottom-6 right-6 flex gap-2 z-[9999]">
         <a
-          href="https://www.instagram.com/mokhtari492025?igsh=cDVsNTVhcmp0ZWFi"
+          href={contactInfo.instagram || "#"}
           className="p-4 text-white transition-all bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 rounded-full shadow-lg hover:scale-110"
           target="_blank"
           rel="noopener noreferrer"
@@ -344,7 +344,7 @@ export default function Home() {
           <Instagram className="w-6 h-6" />
         </a>
         <a
-          href="https://www.facebook.com/profile.php?id=61575060880665&mibextid=ZbWKwL"
+          href={contactInfo.facebook || "#"}
           className="p-4 text-white transition-all bg-blue-600 rounded-full shadow-lg hover:scale-110"
           target="_blank"
           rel="noopener noreferrer"
@@ -353,7 +353,7 @@ export default function Home() {
           <Facebook className="w-6 h-6" />
         </a>
         <a
-          href="https://t.me/mokhtarilinebet"
+          href={contactInfo.telegram || "#"}
           className="p-4 text-white transition-all bg-blue-500 rounded-full shadow-lg hover:scale-110"
           target="_blank"
           rel="noopener noreferrer"
@@ -364,7 +364,7 @@ export default function Home() {
           </svg>
         </a>
         <a
-          href="https://wa.me/message/2BHOXDKUVVCBK1"
+          href={contactInfo.whatsapp || "#"}
           className="p-4 text-white transition-all bg-green-500 rounded-full shadow-lg hover:scale-110"
           target="_blank"
           rel="noopener noreferrer"
@@ -392,7 +392,7 @@ export default function Home() {
               </p>
               <div className="flex space-x-4">
                 <a
-                  href="https://www.instagram.com/mokhtari492025?igsh=cDVsNTVhcmp0ZWFi"
+                  href={contactInfo.instagram || "#"}
                   className="text-gray-400 hover:text-yellow-500 transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -400,7 +400,7 @@ export default function Home() {
                   <Instagram className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://www.facebook.com/profile.php?id=61575060880665&mibextid=ZbWKwL"
+                  href={contactInfo.facebook || "#"}
                   className="text-gray-400 hover:text-yellow-500 transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -408,7 +408,7 @@ export default function Home() {
                   <Facebook className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://t.me/mokhtarilinebet"
+                  href={contactInfo.telegram || "#"}
                   className="text-gray-400 hover:text-yellow-500 transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -418,7 +418,7 @@ export default function Home() {
                   </svg>
                 </a>
                 <a
-                  href="https://wa.me/message/2BHOXDKUVVCBK1"
+                  href={contactInfo.whatsapp || "#"}
                   className="text-gray-400 hover:text-yellow-500 transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -467,7 +467,7 @@ export default function Home() {
                 <li className="flex items-center text-gray-400">
                   <WhatsappIcon className="w-5 h-5 mr-2 text-yellow-500" />
                   <a 
-                    href="https://wa.me/message/2BHOXDKUVVCBK1" 
+                    href={contactInfo.whatsapp || "#"}
                     className="hover:text-yellow-500 transition-colors"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -480,7 +480,7 @@ export default function Home() {
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.95 1.24-5.5 3.65-.52.36-.99.53-1.41.52-.46-.01-1.35-.26-2.01-.48-.81-.27-1.45-.42-1.4-.88.03-.24.37-.49 1.02-.75 3.95-1.71 6.58-2.84 7.9-3.38 3.8-1.61 4.59-1.89 5.11-1.89.11 0 .36.03.52.18.14.13.18.31.2.51-.01.17-.01.5-.01.5z"/>
                   </svg>
                   <a 
-                    href="https://t.me/mokhtarilinebet" 
+                    href={contactInfo.telegram || "#"}
                     className="hover:text-yellow-500 transition-colors"
                     target="_blank" 
                     rel="noopener noreferrer"

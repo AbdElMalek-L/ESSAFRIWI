@@ -45,10 +45,11 @@ export const paymentMethods = [
 ]
 
 export const contactInfo = {
-  whatsapp: "https://wa.me/message/2BHOXDKUVVCBK1",
-  instagram: "",
-  facebook: "",
-  telegram: "",
+  whatsapp: "https://wa.me/212673734697",
+  whatsapp_backup: "https://wa.me/212699206293",
+  instagram: "https://www.instagram.com/essafriwii?igsh=MWJvOG51bXB5YTFrbw==",
+  facebook: "https://www.facebook.com/share/1ByJCPuGnf/",
+  telegram: "https://t.me/abderrahim_essaghir",
 }
 
 export const whatsappContact = "212673734697"
