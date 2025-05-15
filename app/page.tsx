@@ -283,6 +283,29 @@ export default function Home() {
         )}
       </div>
 
+      {/* Linebet Registration Section */}
+      <div className="px-4 py-10 mx-auto max-w-3xl">
+  <a 
+    href="https://lb-aff.com/L?tag=d_4295065m_66803c_apk1&site=4295065&ad=66803" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="block p-8 bg-white rounded-3xl"
+  >
+    <div className="flex flex-col items-center justify-center text-center">
+      <Image
+        src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Linebet.logo.jpg"
+        alt="Linebet Logo"
+        width={200}
+        height={80}
+        className="object-contain mb-6"
+      />
+      <p className="text-2xl font-bold text-yellow-500 animate-pulse" dir="rtl">
+        اضغط هنا للتسجيل في لاينبـــيت
+      </p>
+    </div>
+  </a>
+</div>
+
       {/* Promotional Messages Section */}
       <div className="px-4 py-20 mx-auto max-w-7xl">
         <h2 className="mb-12 text-3xl font-bold text-center text-yellow-500"> Les Avantages</h2>
@@ -306,6 +329,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      
 
       {/* Social Media Buttons */}
       <div className="fixed bottom-6 right-6 flex gap-2 z-[9999]">
