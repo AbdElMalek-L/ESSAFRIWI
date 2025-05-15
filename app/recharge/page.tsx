@@ -3,7 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect, FormEvent, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
-import { applications, paymentMethods, isPhoneNumberMethod, formatRIB, formatPhoneNumber } from "@/lib/data"
+import { applications, paymentMethods, isPhoneNumberMethod, formatRIB, formatPhoneNumber, whatsappContact } from "@/lib/data"
 
 function RechargeContent() {
   const searchParams = useSearchParams()
@@ -43,7 +43,7 @@ function RechargeContent() {
 طريقة الدفع: ${selectedPayment}`
     
     // Construct WhatsApp URL
-    const whatsappUrl = `https://wa.me/212630813193?text=${encodeURIComponent(message)}`
+    const whatsappUrl = `https://wa.me/${whatsappContact}?text=${encodeURIComponent(message)}`
     
     // Open WhatsApp in new tab
     window.open(whatsappUrl, '_blank')
@@ -56,7 +56,7 @@ function RechargeContent() {
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-2">
             <span className="text-xl font-bold text-yellow-500">
-              مختاري<span className="text-white">49</span>
+              مختاري
             </span>
           </Link>
         </div>

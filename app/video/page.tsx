@@ -9,7 +9,7 @@ export default function VideoPage() {
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-2">
             <span className="text-xl font-bold text-yellow-500">
-              MOKHTARI<span className="text-white">49</span>
+              ESSAFRIWI
             </span>
           </Link>
         </div>
@@ -57,15 +57,15 @@ export default function VideoPage() {
           <div className="aspect-video bg-black rounded-xl mb-8 overflow-hidden shadow-lg border border-yellow-500/20">
             {/* This would be replaced with an actual video player */}
             <div className="flex items-center justify-center w-full h-full">
-              <p className="text-yellow-300">Vidéo explicative sur l'utilisation de mokhtari49</p>
+              <p className="text-yellow-300">Vidéo explicative sur l'utilisation de ESSAFRIWI</p>
             </div>
           </div>
 
-          <h2 className="mb-6 text-2xl font-semibold text-yellow-300">Comment utiliser mokhtari49</h2>
+          <h2 className="mb-6 text-2xl font-semibold text-yellow-300">Comment utiliser ESSAFRIWI</h2>
 
           <div className="prose prose-invert max-w-none">
             <p className="text-gray-300">
-              Bienvenue sur mokhtari49, votre plateforme de confiance pour recharger vos comptes de paris sportifs.
+              Bienvenue sur ESSAFRIWI, votre plateforme de confiance pour recharger vos comptes de paris sportifs.
               Cette vidéo vous explique comment utiliser notre service en quelques étapes simples.
             </p>
 

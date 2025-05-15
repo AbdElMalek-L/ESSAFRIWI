@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Phone, Mail, MapPin, Clock, Instagram, Facebook, MessageSquare } from "lucide-react"
+import { contactInfo } from "@/lib/data"
 
 export default function ContactPage() {
   return (
@@ -10,7 +11,7 @@ export default function ContactPage() {
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-2">
             <span className="text-xl font-bold text-yellow-500">
-              MOKHTARI<span className="text-white">49</span>
+              ESSAFRIWI
             </span>
           </Link>
         </div>
@@ -58,7 +59,7 @@ export default function ContactPage() {
                 Contactez-nous directement sur WhatsApp pour une assistance rapide
               </p>
               <a
-                href="https://wa.me/message/2BHOXDKUVVCBK1"
+                href={contactInfo.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 font-medium text-white transition-all bg-green-600 rounded-lg hover:bg-green-700"
@@ -82,7 +83,7 @@ export default function ContactPage() {
           <div className="grid gap-6 md:grid-cols-3">
             {/* Instagram */}
             <a 
-              href="https://www.instagram.com/mokhtari492025?igsh=cDVsNTVhcmp0ZWFi"
+              href={contactInfo.instagram}
               target="_blank"
               rel="noopener noreferrer"
               className="p-6 text-center gradient-card rounded-2xl shadow-xl bg-black/60 border border-pink-500/20 hover:border-pink-500/50 hover:shadow-pink-500/10 transition-all duration-300"
@@ -96,7 +97,7 @@ export default function ContactPage() {
 
             {/* Facebook */}
             <a 
-              href="https://www.facebook.com/profile.php?id=61575060880665&mibextid=ZbWKwL"
+              href={contactInfo.facebook}
               target="_blank"
               rel="noopener noreferrer"
               className="p-6 text-center gradient-card rounded-2xl shadow-xl bg-black/60 border border-blue-500/20 hover:border-blue-500/50 hover:shadow-blue-500/10 transition-all duration-300"
@@ -110,7 +111,7 @@ export default function ContactPage() {
 
             {/* Telegram */}
             <a 
-              href="https://t.me/mokhtarilinebet"
+              href={contactInfo.telegram}
               target="_blank"
               rel="noopener noreferrer"
               className="p-6 text-center gradient-card rounded-2xl shadow-xl bg-black/60 border border-blue-400/20 hover:border-blue-400/50 hover:shadow-blue-400/10 transition-all duration-300"

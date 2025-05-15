@@ -20,7 +20,7 @@ export default function Home() {
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-3 group">
             <span className="text-xl font-bold text-yellow-500 tracking-wider">
-              MOKHTARI<span className="text-white">49</span>
+              ESSAFRIWI
             </span>
           </Link>
         </div>
@@ -79,7 +79,7 @@ export default function Home() {
             <div className="flex items-center justify-between mb-8">
               <Link href="/" className="flex items-center gap-2">
                 <span className="text-xl font-bold text-yellow-500">
-                  MOKHTARI<span className="text-white">49</span>
+                  ESSAFRIWI
                 </span>
               </Link>
               <button 
@@ -227,7 +227,7 @@ export default function Home() {
               {applications.map((app) => (
                 <div
                   key={app.name}
-                  className={`flex items-center justify-center p-1 bg-white rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/20 h-20 cursor-pointer ${
+                  className={`relative flex items-center justify-center p-1 bg-white rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/20 h-20 cursor-pointer ${
                     selectedApp === app.name ? "ring-2 ring-yellow-500 scale-105" : ""
                   }`}
                   onClick={() => setSelectedApp(app.name)}
@@ -239,6 +239,11 @@ export default function Home() {
                     height={80}
                     className="object-contain w-full h-full"
                   />
+                  {app.promoCode && (
+                    <span className="absolute -top-2 -right-2 bg-yellow-500 text-black text-xs font-bold px-2 py-1 rounded-full shadow-md">
+                      code promo: {app.promoCode}
+                    </span>
+                  )}
                 </div>
               ))}
             </div>
@@ -281,7 +286,7 @@ export default function Home() {
           
           <div className="p-8 gradient-card rounded-3xl shadow-2xl backdrop-blur-xl bg-black/60 border border-yellow-500/20 hover:border-yellow-500/30 transition-all duration-300">
             <p className="text-xl font-medium text-center text-white leading-relaxed" dir="rtl">
-              ادخل الرمز التروجي <span className="text-yellow-500 font-bold">MOKHTARI49</span> للحصول على المكفأة تصل 200%
+              ادخل الرمز التروجي <span className="text-yellow-500 font-bold">ESSAFRIWI</span> للحصول على المكفأة تصل 200%
             </p>
           </div>
           
@@ -345,7 +350,7 @@ export default function Home() {
             <div>
               <Link href="/" className="flex items-center gap-2 mb-4">
                 <span className="text-2xl font-bold text-yellow-500">
-                  MOKHTARI<span className="text-white">49</span>
+                  ESSAFRIWI
                 </span>
               </Link>
               <p className="text-gray-400 mb-6" dir="rtl">
@@ -454,7 +459,7 @@ export default function Home() {
           </div>
           
           <div className="border-t border-yellow-500/10 mt-8 pt-8 text-center text-gray-400 text-sm">
-            <p>© {new Date().getFullYear()} MOKHTARI49. Tous droits réservés.</p>
+            <p>© {new Date().getFullYear()} ESSAFRIWI. Tous droits réservés.</p>
           </div>
         </div>
       </footer>

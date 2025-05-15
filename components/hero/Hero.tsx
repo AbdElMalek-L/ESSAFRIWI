@@ -7,7 +7,7 @@ const Hero = () => {
       <div className="absolute inset-0 overflow-hidden rounded-full">
         <Image
           src="/hero.jpg"
-          alt="Mokhtari49 Promotion"
+          alt="ESSAFRIWI Promotion"
           layout="fill"
           objectFit="contain"
           priority

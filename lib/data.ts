@@ -1,48 +1,76 @@
 export const applications = [
-  { name: "1xBet", logo: "https://i.ibb.co/gMYRsJtY/image.png" },
-  { name: "LineBet", logo: "https://i.ibb.co/TxsNrpsf/image.png" },
-  { name: "Melbet", logo: "https://i.ibb.co/5WnRD0tz/image.png" },
-  { name: "Paripulse", logo: "https://i.ibb.co/BVmQyG80/image.png" },
+  { name: "1xBet", logo: "https://i.ibb.co/gMYRsJtY/image.png", promoCode: "kw10 / kora14 / kw14" },
+  { name: "LineBet", logo: "https://i.ibb.co/TxsNrpsf/image.png", promoCode: "ko11"  },
+  { name: "Melbet", logo: "https://i.ibb.co/5WnRD0tz/image.png" , promoCode: "kw14" },
+  { name: "BetWinner", logo: "https://i.ibb.co/mrd51H81/image.png", promoCode: "kwin10"},
 ]
 
 export const paymentMethods = [
   { 
     name: "CIH", 
     logo: "https://i.ibb.co/Kx8ydnrM/image.png",
-    rib: "6313 1522 1100 8300",
-    accountName: "BELKACEM MOKHTARI"
+    rib: "6263139211019800",
+    accountName: "fatima ouraj"
   },
   { 
     name: "CashPlus", 
     logo: "https://i.ibb.co/DHH7d06f/image.png",
-    rib: "0712137400",
-    accountName: "BELKACEM MOKHTARI"
+    rib: "0699206293 / 0673734697",
+    accountName: "Abderrahim essaghir"
   },
   { 
     name: "Barid Bank", 
     logo: "https://i.ibb.co/kNQWLtz/image.png",
-    rib: "",
-    accountName: "BELKACEM MOKHTARI"
+    rib: "11626946",
+    accountName: "Abderrahim essaghir"
   },
   { 
     name: "Orange", 
     logo: "https://i.ibb.co/cXCz47CP/image.png",
-    rib: "0712137400",
-    accountName: "BELKACEM MOKHTARI"
+    rib: "Recharge",
+    accountName: "Abderrahim essaghir"
   },
   { 
     name: "Inwi", 
     logo: "https://i.ibb.co/svhKsQMV/image.png",
-    rib: "",
-    accountName: "BELKACEM MOKHTARI"
+    rib: "Recharge",
+    accountName: "Abderrahim essaghir"
   },
   { 
     name: "Attijariwafa bank", 
     logo: "https://i.ibb.co/b5KvZbSJ/image.png",
-    rib: "0075 7500 0788 2000 3040 5179",
-    accountName: "BELKACEM MOKHTARI"
+    rib: "007281000478300030899733",
+    accountName: "Abderrahim essaghir"
   },
 ]
+
+export const contactInfo = {
+  whatsapp: "https://wa.me/message/2BHOXDKUVVCBK1",
+  instagram: "",
+  facebook: "",
+  telegram: "",
+}
+
+export const whatsappContact = "212673734697"
+
+export const appInfo = {
+  "Paripulse": {
+    city: "",
+    address: ""
+  },
+  "LineBet": {
+    city: "",
+    address: ""
+  },
+  "1xBet": {
+    city: "",
+    address: ""
+  },
+  "Melbet": {
+    city: "",
+    address: ""
+  }
+}
 
 export const isPhoneNumberMethod = (name: string) => {
   return ['Orange', 'Inwi', 'CashPlus'].includes(name);
@@ -56,15 +84,6 @@ export const formatRIB = (rib: string) => {
 }
 
 export const formatPhoneNumber = (number: string) => {
-  // Remove any existing spaces
-  const cleaned = number.replace(/\s/g, '');
-  
-  // Format the phone number to be in the correct pattern
-  if (cleaned.length === 10) {
-    return `${cleaned.substring(8, 10)} ${cleaned.substring(6, 8)} ${cleaned.substring(4, 6)} ${cleaned.substring(2, 4)} ${cleaned.substring(0, 2)}`;
-  }
-  
-  // Fallback for numbers of different lengths
-  const groups = cleaned.match(/.{1,2}/g) || [];
-  return groups.reverse().join(' ') || number;
+    return number;
+ 
 }

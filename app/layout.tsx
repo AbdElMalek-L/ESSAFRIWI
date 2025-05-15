@@ -6,7 +6,7 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Mokhtari49 - Recharge et Applications de Paris",
+  title: "ESSAFRIWI - Recharge et Applications de Paris",
   description: "Rechargez vos comptes de paris sportifs et accédez aux meilleures applications de paris en ligne.",
   generator: 'v0.dev',
   icons: {

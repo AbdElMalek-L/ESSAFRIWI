@@ -3,7 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState, FormEvent, useEffect, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
-import { applications, paymentMethods, isPhoneNumberMethod, formatRIB, formatPhoneNumber } from "@/lib/data"
+import { applications, paymentMethods, isPhoneNumberMethod, formatRIB, formatPhoneNumber, whatsappContact, appInfo as appDetails } from "@/lib/data"
 
 function RetirerContent() {
   const searchParams = useSearchParams()
@@ -28,25 +28,6 @@ function RetirerContent() {
     }
   }, [searchParams])
 
-  const appInfo = {
-    "Paripulse": {
-      city: "berkane",
-      address: "special BM49"
-    },
-    "LineBet": {
-      city: "berkane",
-      address: "4 mokhtari49"
-    },
-    "1xBet": {
-      city: "berkane",
-      address: "#BM49"
-    },
-    "Melbet": {
-      city: "",
-      address: ""
-    }
-  }
-
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
     
@@ -66,7 +47,7 @@ function RetirerContent() {
 طريقة الدفع: ${selectedPayment}`
     
     // Construct WhatsApp URL
-    const whatsappUrl = `https://wa.me/212630813193?text=${encodeURIComponent(message)}`
+    const whatsappUrl = `https://wa.me/${whatsappContact}?text=${encodeURIComponent(message)}`
     
     // Open WhatsApp in new tab
     window.open(whatsappUrl, '_blank')
@@ -79,7 +60,7 @@ function RetirerContent() {
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-2">
             <span className="text-xl font-bold text-yellow-500">
-              مختاري<span className="text-white">49</span>
+              مختاري
             </span>
           </Link>
         </div>
@@ -135,12 +116,7 @@ function RetirerContent() {
                   <div className="relative w-12 h-12 overflow-hidden rounded-lg bg-white ml-3">
                     {selectedApp ? (
                       <Image
-                        src={[
-                          { name: "1xBet", logo: "https://i.ibb.co/gMYRsJtY/image.png" },
-                          { name: "LineBet", logo: "https://i.ibb.co/TxsNrpsf/image.png" },
-                          { name: "Melbet", logo: "https://i.ibb.co/5WnRD0tz/image.png" },
-                          { name: "Paripulse", logo: "https://i.ibb.co/BVmQyG80/image.png" },
-                        ].find(app => app.name === selectedApp)?.logo || ''}
+                        src={applications.find(app => app.name === selectedApp)?.logo || ''}
                         alt={selectedApp}
                         fill
                         className="object-contain p-1"
@@ -155,12 +131,7 @@ function RetirerContent() {
                 </button>
                 {selectedApp === '' && (
                   <div className="absolute z-10 w-full mt-1 bg-black border rounded-lg border-yellow-500/20">
-                    {[
-                      { name: "1xBet", logo: "https://i.ibb.co/gMYRsJtY/image.png" },
-                      { name: "LineBet", logo: "https://i.ibb.co/TxsNrpsf/image.png" },
-                      { name: "Melbet", logo: "https://i.ibb.co/5WnRD0tz/image.png" },
-                      { name: "Paripulse", logo: "https://i.ibb.co/BVmQyG80/image.png" },
-                    ].map((app) => (
+                    {applications.map((app) => (
                       <button
                         key={app.name}
                         type="button"
@@ -183,14 +154,14 @@ function RetirerContent() {
               </div>
             </div>
 
-            {selectedApp && appInfo[selectedApp as keyof typeof appInfo] && (
+            {selectedApp && appDetails[selectedApp as keyof typeof appDetails] && (
               <div className="p-4 mb-2 border border-yellow-500/20 rounded-lg bg-yellow-500/5">
                 <h3 className="mb-2 text-yellow-400 font-medium">عنوان السحب</h3>
-                {appInfo[selectedApp as keyof typeof appInfo].city && (
-                  <p className="text-gray-300">المدينة: {appInfo[selectedApp as keyof typeof appInfo].city}</p>
+                {appDetails[selectedApp as keyof typeof appDetails].city && (
+                  <p className="text-gray-300">المدينة: {appDetails[selectedApp as keyof typeof appDetails].city}</p>
                 )}
-                {appInfo[selectedApp as keyof typeof appInfo].address && (
-                  <p className="text-gray-300">العنوان: {appInfo[selectedApp as keyof typeof appInfo].address}</p>
+                {appDetails[selectedApp as keyof typeof appDetails].address && (
+                  <p className="text-gray-300">العنوان: {appDetails[selectedApp as keyof typeof appDetails].address}</p>
                 )}
               </div>
             )}
