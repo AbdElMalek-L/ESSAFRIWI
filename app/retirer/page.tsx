@@ -3,7 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState, FormEvent, useEffect, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
-import { applications, paymentMethods, isPhoneNumberMethod, formatRIB, formatPhoneNumber, whatsappContact, appInfo as appDetails } from "@/lib/data"
+import { applications, paymentMethods, isPhoneNumberMethod, formatRIB, formatPhoneNumber, whatsappContact, appInfo as appDetails, headerLogoUrl } from "@/lib/data"
 
 function RetirerContent() {
   const searchParams = useSearchParams()
@@ -59,9 +59,13 @@ function RetirerContent() {
       <header className="flex items-center justify-between px-4 py-4 bg-black/80 backdrop-blur-md border-b border-yellow-500/10 md:px-8 sticky top-0 z-50">
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold text-yellow-500">
-              مختاري
-            </span>
+            <Image
+              src={headerLogoUrl}
+              alt="ESSAFRIWI Logo"
+              width={150}
+              height={40}
+              className="object-contain"
+            />
           </Link>
         </div>
 

@@ -6,7 +6,7 @@ import { Instagram, Facebook } from "lucide-react"
 import Hero from "@/components/hero/Hero"
 import FallingDollars from "@/components/hero/FallingDollars"
 import { useState } from "react"
-import { applications, paymentMethods } from "@/lib/data"
+import { applications, paymentMethods, headerLogoUrl } from "@/lib/data"
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -19,9 +19,13 @@ export default function Home() {
       <header className="flex items-center justify-between px-6 py-5 bg-black/90 backdrop-blur-xl border-b border-yellow-500/20 md:px-10 sticky top-0 z-50 shadow-lg shadow-yellow-500/5">
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-3 group">
-            <span className="text-xl font-bold text-yellow-500 tracking-wider">
-              ESSAFRIWI
-            </span>
+            <Image
+              src={headerLogoUrl}
+              alt="ESSAFRIWI Logo"
+              width={150}
+              height={40}
+              className="object-contain"
+            />
           </Link>
         </div>
 
@@ -78,9 +82,13 @@ export default function Home() {
           <div className="fixed right-0 top-0 bottom-0 w-[75%] max-w-sm bg-black p-6 shadow-xl">
             <div className="flex items-center justify-between mb-8">
               <Link href="/" className="flex items-center gap-2">
-                <span className="text-xl font-bold text-yellow-500">
-                  ESSAFRIWI
-                </span>
+                <Image
+                  src={headerLogoUrl}
+                  alt="ESSAFRIWI Logo"
+                  width={120}
+                  height={32}
+                  className="object-contain"
+                />
               </Link>
               <button 
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -227,22 +235,23 @@ export default function Home() {
               {applications.map((app) => (
                 <div
                   key={app.name}
-                  className={`relative flex items-center justify-center p-1 bg-white rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/20 h-20 cursor-pointer ${
+                  onClick={() => setSelectedApp(app.name)}
+                  className={`flex flex-col items-center justify-start p-1 bg-white rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/20 cursor-pointer ${
                     selectedApp === app.name ? "ring-2 ring-yellow-500 scale-105" : ""
                   }`}
-                  onClick={() => setSelectedApp(app.name)}
                 >
-                  <Image
-                    src={app.logo || "/placeholder.svg"}
-                    alt={app.name}
-                    width={120}
-                    height={80}
-                    className="object-contain w-full h-full"
-                  />
+                  <div className="relative h-20 w-full">
+                    <Image
+                      src={app.logo || "/placeholder.svg"}
+                      alt={app.name}
+                      fill
+                      className="object-contain p-1"
+                    />
+                  </div>
                   {app.promoCode && (
-                    <span className="absolute -top-2 -right-2 bg-yellow-500 text-black text-xs font-bold px-2 py-1 rounded-full shadow-md">
+                    <div className="w-full bg-yellow-500 text-black text-xs font-bold p-1 text-center rounded-b-lg mt-auto">
                       code promo: {app.promoCode}
-                    </span>
+                    </div>
                   )}
                 </div>
               ))}

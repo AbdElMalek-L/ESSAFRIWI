@@ -72,6 +72,8 @@ export const appInfo = {
   }
 }
 
+export const headerLogoUrl = "https://i.ibb.co/wrsc0nRj/LOGO.png"
+
 export const isPhoneNumberMethod = (name: string) => {
   return ['Orange', 'Inwi', 'CashPlus'].includes(name);
 }

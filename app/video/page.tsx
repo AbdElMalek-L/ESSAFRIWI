@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
+import { headerLogoUrl } from "@/lib/data";
 
 export default function VideoPage() {
   return (
@@ -8,9 +9,13 @@ export default function VideoPage() {
       <header className="flex items-center justify-between px-4 py-4 bg-black/90 backdrop-blur-xl border-b border-yellow-500/20 md:px-8 sticky top-0 z-50 shadow-lg shadow-yellow-500/5">
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold text-yellow-500">
-              ESSAFRIWI
-            </span>
+            <Image
+              src={headerLogoUrl}
+              alt="ESSAFRIWI Logo"
+              width={150}
+              height={40}
+              className="object-contain"
+            />
           </Link>
         </div>
 

@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   description: "Rechargez vos comptes de paris sportifs et accédez aux meilleures applications de paris en ligne.",
   generator: 'v0.dev',
   icons: {
-    icon: '/favicon.ico?v=2',
-    shortcut: '/favicon.ico?v=2',
-    apple: '/favicon.ico?v=2',
+    icon: '/icon.jpg',
+    shortcut: '/icon.jpg',
+    apple: '/icon.jpg',
   }
 }
 
