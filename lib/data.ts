@@ -1,6 +1,6 @@
 export const applications = [
   { name: "1xBet", logo: "https://i.ibb.co/gMYRsJtY/image.png", promoCode: "kw10 / kora14 / kw14" },
-  { name: "LineBet", logo: "https://i.ibb.co/TxsNrpsf/image.png", promoCode: "ko11"  },
+  { name: "LineBet", logo: "https://i.ibb.co/TxsNrpsf/image.png", promoCode: "ko14"  },
   { name: "Melbet", logo: "https://i.ibb.co/5WnRD0tz/image.png" , promoCode: "kw14" },
   { name: "BetWinner", logo: "https://i.ibb.co/mrd51H81/image.png", promoCode: "kwin10"},
 ]
