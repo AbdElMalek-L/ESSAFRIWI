@@ -56,7 +56,7 @@ export const whatsappContact = "212673734697"
 
 export const appInfo = {
   "BetWinner": {
-    city: "Sefrou",
+    city: "Sefrou Fes Meknes",
     address: "walid service"
   },
   "LineBet": {
