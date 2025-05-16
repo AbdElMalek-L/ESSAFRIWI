@@ -312,13 +312,13 @@ export default function Home() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div className="p-8 gradient-card rounded-3xl shadow-2xl backdrop-blur-xl bg-black/60 border border-yellow-500/20 hover:border-yellow-500/30 transition-all duration-300">
             <p className="text-xl font-medium text-center text-white leading-relaxed" dir="rtl">
-              نوفر لكم خدامات الشحن والسحب باحسن الاثمنة وخدمات اسرع
+              نوفر لكم خدمات الشحن والسحب باحسن الاثمنة وخدمات اسرع
             </p>
           </div>
           
           <div className="p-8 gradient-card rounded-3xl shadow-2xl backdrop-blur-xl bg-black/60 border border-yellow-500/20 hover:border-yellow-500/30 transition-all duration-300">
             <p className="text-xl font-medium text-center text-white leading-relaxed" dir="rtl">
-              ادخل الرمز التروجي <span className="text-yellow-500 font-bold">ESSAFRIWI</span> للحصول على المكفأة تصل 200%
+              ادخل الرمز التروجي للحصول على المكفأة تصل 200%
             </p>
           </div>
           
