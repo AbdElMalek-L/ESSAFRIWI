@@ -55,21 +55,21 @@ export const contactInfo = {
 export const whatsappContact = "212673734697"
 
 export const appInfo = {
-  "Paripulse": {
-    city: "",
-    address: ""
+  "BetWinner": {
+    city: "Sefrou",
+    address: "walid service"
   },
   "LineBet": {
-    city: "",
-    address: ""
+    city: "Sefrou Fes Meknes",
+    address: "ESSAFRIWI"
   },
   "1xBet": {
-    city: "",
-    address: ""
+    city: "Fez",
+    address: "safae_service (24/7)"
   },
   "Melbet": {
-    city: "",
-    address: ""
+    city: "Sefrou",
+    address: "essafriwi service"
   }
 }
 
