@@ -63,10 +63,18 @@ export const appInfo = {
     city: "Sefrou Fes Meknes",
     address: "ESSAFRIWI"
   },
-  "1xBet": {
-    city: "Fez Sefrou Meknes",
-    address: "safae_service (24/7)"
-  },
+  "1xBet": [
+    {
+      currency: "USD",
+      city: "Fez, Meknes",
+      address: "safae_service (24/7)"
+    },
+    {
+      currency: "MAD",
+      city: "Sefrou",
+      address: "safae_service MAD (24/7)"
+    }
+  ],
   "Melbet": {
     city: "Sefrou",
     address: "essafriwi service"

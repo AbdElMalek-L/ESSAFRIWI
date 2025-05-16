@@ -161,11 +161,23 @@ function RetirerContent() {
             {selectedApp && appDetails[selectedApp as keyof typeof appDetails] && (
               <div className="p-4 mb-2 border border-yellow-500/20 rounded-lg bg-yellow-500/5">
                 <h3 className="mb-2 text-yellow-400 font-medium">عنوان السحب</h3>
-                {appDetails[selectedApp as keyof typeof appDetails].city && (
-                  <p className="text-gray-300">المدينة: {appDetails[selectedApp as keyof typeof appDetails].city}</p>
-                )}
-                {appDetails[selectedApp as keyof typeof appDetails].address && (
-                  <p className="text-gray-300">العنوان: {appDetails[selectedApp as keyof typeof appDetails].address}</p>
+                {Array.isArray(appDetails[selectedApp as keyof typeof appDetails]) ? (
+                  (appDetails[selectedApp as keyof typeof appDetails] as any[]).map((detail, index) => (
+                    <div key={index} className="mb-2 last:mb-0">
+                      {detail.currency && <p className="text-gray-300">العملة: {detail.currency}</p>}
+                      {detail.city && <p className="text-gray-300">المدينة: {detail.city}</p>}
+                      {detail.address && <p className="text-gray-300">العنوان: {detail.address}</p>}
+                    </div>
+                  ))
+                ) : (
+                  <>
+                    {(appDetails[selectedApp as keyof typeof appDetails] as any).city && (
+                      <p className="text-gray-300">المدينة: {(appDetails[selectedApp as keyof typeof appDetails] as any).city}</p>
+                    )}
+                    {(appDetails[selectedApp as keyof typeof appDetails] as any).address && (
+                      <p className="text-gray-300">العنوان: {(appDetails[selectedApp as keyof typeof appDetails] as any).address}</p>
+                    )}
+                  </>
                 )}
               </div>
             )}
